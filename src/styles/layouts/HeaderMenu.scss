@@ -1,0 +1,245 @@
+.homes{
+    margin: 0 auto;
+    padding-top: 1rem;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e7e7e7;
+    .menu{
+        display: flex;
+        width: 90%;
+        margin: 0 auto;
+        justify-content: space-evenly;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e7e7e7;
+        .menu-img{
+            width: 20%;
+        }
+        .menu-text{
+            padding-top:20px;
+            width: 40rem;
+            ul{
+                display: flex;
+                justify-content: space-between;
+                a{
+                    text-decoration: none;
+                li{    
+                    color:black;
+                    font-family: "Open Sans", sans-serif;
+                    font-size: 15px;
+                    font-weight: 700;
+                }
+                li:hover{
+                    color:#4CAF50;
+                }
+            }
+            }
+        }
+        .menu-icon{
+            padding-top:20px;
+            width: 15%;        
+            img{
+                width: 18px;
+                height: 18px;
+                margin-left: 2rem;
+
+            }
+        }
+    }
+    .wrap-container{
+        display: flex;
+        .wrap-container1{
+            width: 85%;
+            margin: 0 auto;
+            padding-left:120px;
+            background-color:#f1f1f1;
+            .greenVera{ 
+                font-size:120px;
+                color:#789629;
+            }
+            .title{
+                color: #6c3c33;
+                font-family: "Open Sans", sans-serif;
+                font-size: 19px;
+                margin-top: 7px;
+                margin-left: 20px;
+                white-space: nowrap;
+            }
+            .price{
+                margin-top: 25px;
+                margin-left: 25px;
+                color: #789629;          
+                font-size: 45px;
+                font-family: "Open Sans", sans-serif;
+                span{
+                    display:inline-block;
+                    font-size:20px;
+                    vertical-align: super;
+                }
+            }
+            .btn-buy{
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin-left: 5.5rem;
+            }
+            .btn-buy:hover{
+                background-color: black;
+            }
+        }
+    }
+    
+}
+.img-up{
+    position: absolute;
+    margin-left: 47rem;
+    display: block;
+    height:10px;
+    width:40px;
+    animation:myfirst 1.5s;
+    -webkit-animation:myfirst 1.5s;
+    img{
+        background-color:#4CAF50;
+    }
+}
+.img-up2{
+    position: absolute;
+    margin-left: 75rem;
+    display: block;
+    height:10px;
+    width:40px;
+    animation:myfirst 1.5s;
+    -webkit-animation:myfirst 1.5s;
+    img{
+        background-color:#4CAF50;
+    }
+}
+.item-sanpham-hover{
+    position: absolute;
+    z-index: 1;
+    top: 95px;
+    left: 30%;
+    width: 710px;
+    padding: 0 0 26px 35px; 
+    border: 2px solid #4CAF50;
+    background-color: #fff;
+    box-shadow: 0 10px 20px ;
+    animation:myfirst 1.5s;
+    -webkit-animation:myfirst 1.5s;
+    .item-sanpham-hover:hover{
+        display: block;
+        background-color: red;
+    }
+    .sanpham-display{
+        width:95%;
+        display:flex;
+        justify-content: space-between;
+        padding-top:15px;
+        margin: auto;
+        ul{
+            margin-top:15px;
+            font-size:16px;
+            font-weight:bold;
+            line-height: 25px;
+            li{
+                margin-top:9px;
+                margin-left:1px;
+                font-size:14px;
+                font-weight: 1;
+                color:#A9A9A9;
+            }
+        }
+    }
+}
+@keyframes myfirst{
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.item-cart{ 
+    position: absolute;
+    z-index: 1;
+    top: 95px;
+    left: 77%;
+    width: 220px;
+    padding: 0 0 26px 15px; 
+    border: 2px solid #4CAF50;
+    background-color: #fff;
+    box-shadow: 0 10px 20px ;
+    animation:myfirst 1.5s;
+    -webkit-animation:myfirst 1.5s;
+    .carts{
+        width:95%;
+        justify-content: space-between;
+        padding-top:10px;
+        .detail-cart{
+            display:flex;
+            padding-top: 15px;
+            .detail-cart-text{
+                padding-left:15px;
+                display: flex;
+                flex-direction: column;
+                font-size: 13px;
+                line-height: 1.3;
+                .cart-price{
+                    color: #789629;          
+                    font-size: 14px;
+                    font-family: "Open Sans", sans-serif;
+                    font-style: italic;
+                    font-weight: bold;
+                    span{
+                        display:inline-block;
+                        font-size:14px;
+                        vertical-align: super;
+                    }
+                }
+            }
+
+        }
+        .sum-price{
+            display:flex;
+            justify-content: space-between;
+            padding-top:5px;
+            p{
+                font-size: 14px;
+            }
+            .cart-price{
+                color: #789629;          
+                font-size: 14px;
+                font-family: "Open Sans", sans-serif;
+                font-style: italic;
+                font-weight: bold;
+                span{
+                    display:inline-block;
+                    font-size:10px;
+                    vertical-align: super;
+                    
+                }
+            }
+        }
+        .btn-cart{
+            background-color: black;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 18px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-left: 40px;
+            margin-top: 20px;
+            &:hover{
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}
