@@ -1,7 +1,8 @@
 import React from 'react';
 import HeaderMenu from './layouts/HeaderMenu'
 import Bodyinfo from './layouts/bodyInfo'
-import Demo from './layouts/demo'
+import Slide from './layouts/slider'
+import ProductDemo from './layouts/productDemo'
 
 
 
@@ -11,7 +12,8 @@ function HomePage() {
     <div className="home">
       <HeaderMenu />
       <Bodyinfo />
-      <Demo />
+      <Slide />
+      <ProductDemo/>
     </div>
   );
 }
