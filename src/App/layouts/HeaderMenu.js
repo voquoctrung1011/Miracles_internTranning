@@ -8,12 +8,22 @@ import Up2 from "../../assets/images/up2.png";
 import Product from "../../assets/images/product.png";
 import Banner1 from "../../assets/images/banner1.png";
 import Banner2 from "../../assets/images/banner2.png";
+import MenuRepos from "../../assets/images/menu-repos.png";
+import Exit from "../../assets/images/exit.png";
 
 function HeaderMenu() {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false)
+  const [width, setWidth] = useState(920)
 
+  const showMenu = () => {
+    if(!isOpenMenu)
+      setIsOpenMenu(true);
+    else
+    setIsOpenMenu(false);
+  } 
 
 
   return (
@@ -50,6 +60,18 @@ function HeaderMenu() {
               src={Cart} alt="Cart"
             />
             <img src={Search} alt="Search" />
+            <img
+              className="img-menu-repos"
+              src={MenuRepos}
+              alt="MenuRepos"
+              onClick={showMenu}
+            />
+            <img
+              className="img-exit"
+              src={Exit}
+              alt="Exit"
+              onClick={showMenu}
+            />
           </div>
         </div>
         {/* dropdown san pham */}
@@ -149,6 +171,27 @@ function HeaderMenu() {
                   </div>
 
                 </div>
+              </div>
+            </>
+          )
+        }
+        {
+          isOpenMenu && (
+            <>
+            <div className="menu-repos">
+            <div className="menu-contain">
+                <ul>
+                  <li><a>Trang chủ</a></li>
+                  <li><a>Giới thiệu</a></li>
+                  <li 
+                    onMouseOver={() => setIsOpen(true)}>
+                    <a>Sản phẩm</a>
+                  </li>
+                  <li><a>Tin tức</a></li>
+                  <li><a>Bản đồ</a></li>
+                  <li><a>Liên hệ</a></li>
+                </ul>
+              </div>
               </div>
             </>
           )

@@ -1,3 +1,6 @@
+$tablet-breakpoint: 992px;
+$mobile-breakpoint: 420px;
+
 .homes{
     margin: 0 auto;
     padding-top: 1rem;
@@ -10,12 +13,24 @@
         justify-content: space-evenly;
         padding-bottom: 15px;
         border-bottom: 1px solid #e7e7e7;
+        position: fixed;
+        @media (max-width: $tablet-breakpoint){
+            width: 80%;
+            border-bottom: 1px solid #e7e7e7;
+        }   
         .menu-img{
             width: 20%;
+            @media (max-width: $tablet-breakpoint){
+                float:right;
+                width: 60%;
+            }
         }
         .menu-text{
             padding-top:20px;
             width: 40rem;
+            @media (max-width: $tablet-breakpoint){
+                display:none;
+            }
             ul{
                 display: flex;
                 justify-content: space-between;
@@ -35,25 +50,64 @@
         }
         .menu-icon{
             padding-top:20px;
-            width: 15%;        
+            width: 15%;   
+            @media (max-width: $tablet-breakpoint){
+                float:right;
+                display: flex;
+            }     
             img{
                 width: 18px;
-                height: 18px;
+                height: 18px;   
                 margin-left: 2rem;
-
+                @media (max-width: $tablet-breakpoint){
+                    
+                }
             }
+            img:nth-child(3){
+                display:none;
+                @media (max-width: $tablet-breakpoint){
+                    display:block;
+                }   
+            }
+            .img-exit{
+                display: none;
+                @media (max-width: $tablet-breakpoint){
+                    display: none;
+                }
+            }
+
         }
     }
     .wrap-container{
+        @media (max-width: $tablet-breakpoint){
+            
+        }
         display: flex;
         .wrap-container1{
             width: 85%;
             margin: 0 auto;
             padding-left:120px;
             background-color:#f1f1f1;
+            @media (max-width: $tablet-breakpoint){
+                align-items: center;
+                text-align: center;
+                padding-left:0;
+            }
+            img{
+                @media (max-width: $tablet-breakpoint){
+                    width:60%;
+                    height: 60%;
+                    padding-top:70px;
+                    
+                }
+            }
             .greenVera{ 
                 font-size:120px;
                 color:#789629;
+                @media (max-width: $tablet-breakpoint){
+                    text-align: center;
+                    font-size:70px;
+                }
             }
             .title{
                 color: #6c3c33;
@@ -62,6 +116,9 @@
                 margin-top: 7px;
                 margin-left: 20px;
                 white-space: nowrap;
+                @media (max-width: $tablet-breakpoint){
+                    text-align: center;
+                }
             }
             .price{
                 margin-top: 25px;
@@ -69,6 +126,10 @@
                 color: #789629;          
                 font-size: 45px;
                 font-family: "Open Sans", sans-serif;
+                @media (max-width: $tablet-breakpoint){
+                    text-align: center;
+                    font-size: 35px;
+                }
                 span{
                     display:inline-block;
                     font-size:20px;
@@ -86,9 +147,26 @@
                 display: inline-block;
                 font-size: 16px;
                 margin-left: 5.5rem;
+                @media (max-width: $tablet-breakpoint){
+                    margin:0;                   
+                    margin-top:20px;
+                }
             }
             .btn-buy:hover{
                 background-color: black;
+            }
+        }
+        .wrap-container2{
+            @media (max-width: $tablet-breakpoint){
+                float: right;
+                display: flex;
+                
+            }
+            img{
+                @media (max-width: $tablet-breakpoint){
+                    width:100%;
+                    height: 100%;
+                }
             }
         }
     }
@@ -101,10 +179,10 @@
     height:10px;
     width:40px;
     animation:myfirst 1.5s;
-    -webkit-animation:myfirst 1.5s;
-    img{
-        background-color:#4CAF50;
-    }
+    -webkit-animation:myfirst 1.5s; 
+    @media (max-width: $tablet-breakpoint){
+        display:none;
+    }  
 }
 .img-up2{
     position: absolute;
@@ -114,6 +192,9 @@
     width:40px;
     animation:myfirst 1.5s;
     -webkit-animation:myfirst 1.5s;
+    @media (max-width: $tablet-breakpoint){
+        display:none;
+    }  
     img{
         background-color:#4CAF50;
     }
@@ -131,6 +212,14 @@
     animation:myfirst 1.5s;
     -webkit-animation:myfirst 1.5s;
     text-decoration: none;
+    @media (max-width: $tablet-breakpoint){
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        top: 13.5rem;
+        left: 5rem;
+        z-index: 2;
+    }  
     .item-sanpham-hover:hover{
         display: block;
         background-color: red;
@@ -178,6 +267,9 @@
     box-shadow: 0 10px 20px ;
     animation:myfirst 1.5s;
     -webkit-animation:myfirst 1.5s;
+    @media (max-width: $tablet-breakpoint){
+        width: auto;
+    }
     .carts{
         width:95%;
         justify-content: space-between;
@@ -245,4 +337,38 @@
             }
         }
     }
+}
+.menu-repos{
+    display: none;
+    @media (max-width: $tablet-breakpoint){
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-bottom: 1px solid #e7e7e7;
+        background-color: #f4f4f475;
+        z-index: 1;
+        margin-top:3.7rem;
+        animation:menu-repos 1.5s;
+        -webkit-animation:menu-repos 1.5s;
+        @keyframes menu-repos{
+            from {
+                transform: translateY(-50px);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+    }
+    .menu-contain{
+    @media (max-width: $tablet-breakpoint){
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        margin-left:8rem;
+        width:50%;
+        line-height: 3;
+            
+    }
+}
 }
