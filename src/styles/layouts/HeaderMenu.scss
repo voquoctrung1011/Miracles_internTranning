@@ -130,6 +130,7 @@
     box-shadow: 0 10px 20px ;
     animation:myfirst 1.5s;
     -webkit-animation:myfirst 1.5s;
+    text-decoration: none;
     .item-sanpham-hover:hover{
         display: block;
         background-color: red;
@@ -145,12 +146,14 @@
             font-size:16px;
             font-weight:bold;
             line-height: 25px;
+            
             li{
                 margin-top:9px;
                 margin-left:1px;
-                font-size:14px;
+                font-size:14px; 
                 font-weight: 1;
                 color:#A9A9A9;
+                
             }
         }
     }
