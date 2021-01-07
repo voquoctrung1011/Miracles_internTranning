@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HeaderMenu from './layouts/HeaderMenu'
-import Bodyinfo from './layouts/bodyInfo'
-import Slide from './layouts/slider'
-import ProductDemo from './layouts/productDemo'
+// import HeaderMenu from './layouts/HeaderMenu'
+// import Bodyinfo from './layouts/bodyInfo'
+// import Slide from './layouts/slider'
+// import ProductDemo from './layouts/productDemo'
 import MainPage from './layouts/mainpage/mainpage'
+import 'antd/dist/antd.css';
 
 
 
@@ -18,7 +19,8 @@ function HomePage() {
       <ProductDemo/> */}
       <Router>
         <Switch>
-          <Route exact path="/layouts/mainpage" render={() => <MainPage />} />
+          {/* <Route exact path="/layouts/mainpage" render={() => <MainPage />} /> */}
+          <MainPage />
         </Switch>
       </Router>
     </div>

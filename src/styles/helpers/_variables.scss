@@ -4,6 +4,11 @@ $color-black-light: #e7e7e7;
 $color-black-light-1: #888;
 
 @font-face {
-    font-family: "utm-androgyne";
-    src: url("../../assets/font/UTM AvoBold_Italic.ttf");
-  }
+    font-family: "utm-viceroyJF";
+    src: url("../../assets/font/UTM ViceroyJF.ttf");
+}
+
+@font-face {
+  font-family: "utm-androgyne";
+  src: url("../../assets/font/UTM Androgyne.ttf");
+}
