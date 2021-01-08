@@ -19,13 +19,33 @@ const Information = () => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-        const settings = {
-            arrows: true,
-            asNavfor:true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 5,
-            slidesToScroll: 1
+    const settings = {
+        arrows: true,
+        asNavfor: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            // {
+            //     breakpoint: 1000,
+            //     settings: {
+            //         slidesToShow: 3,
+            //         slidesToScroll: 1,
+            //         infinite: true,
+            //         dots: false
+            //     }
+            // }
+        ]
     };
 
     const IsShowButton = () => {
@@ -77,270 +97,270 @@ const Information = () => {
                     </div>
 
                     <div className="products">
-                <Slider  {...settings}>
+                        <Slider  {...settings}>
 
-                    <div className="product-container">
-                        <img src={Product1}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
+                            <div className="product-container">
+                                <img src={Product1}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div
+                                        className="button-"
+                                    >
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div
-                                className="button-"
-                            >
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
+
+                            <div className="product-container">
+                                <img src={Product2}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
+                            <div className="product-container">
+                                <img src={Product3}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="product-container">
+                                <img src={Product4}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="product-container">
+                                <img src={Product5}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="product-container">
+                                <img src={Product6}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="product-container">
+                                <img src={Product7}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="product-container">
+                                <img src={Product9}></img>
+                                <div className="table-price">
+                                    <p className="product-title">Home</p>
+                                    <p className="product-name">Mỹ phẩm châu âu</p>
+                                    <div className="line"></div>
+                                    <div className="text-price">
+                                        <p className="price1">
+                                            350.000<span>đ</span>
+                                        </p>
+                                        <p className="price2">
+                                            450.000<span>đ</span>
+                                        </p>
+                                    </div>
+                                    <div className="button-">
+                                        <div className="button-price">
+                                            <Button type="primary">Mua hàng</Button>
+                                        </div>
+                                        <div className="button-heart">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Heart}></img>
+                                            </Button>
+                                        </div>
+                                        <div className="button-reload">
+                                            <Button type="primary" shape="circle">
+                                                <img src={Reload}></img>
+                                            </Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </Slider>
                     </div>
 
-                    <div className="product-container">
-                        <img src={Product2}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product-container">
-                        <img src={Product3}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product-container">
-                        <img src={Product4}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product-container">
-                        <img src={Product5}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product-container">
-                        <img src={Product6}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product-container">
-                        <img src={Product7}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="product-container">
-                        <img src={Product9}></img>
-                        <div className="table-price">
-                            <p className="product-title">Home</p>
-                            <p className="product-name">Mỹ phẩm châu âu</p>
-                            <div className="line"></div>
-                            <div className="text-price">
-                                <p className="price1">
-                                    350.000<span>đ</span>
-                                </p>
-                                <p className="price2">
-                                    450.000<span>đ</span>
-                                </p>
-                            </div>
-                            <div className="button-">
-                                <div className="button-price">
-                                    <Button type="primary">Mua hàng</Button>
-                                </div>
-                                <div className="button-heart">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Heart}></img>
-                                    </Button>
-                                </div>
-                                <div className="button-reload">
-                                    <Button type="primary" shape="circle">
-                                        <img src={Reload}></img>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </Slider>
-                </div>
-                   
                 </div>
 
             </Container>

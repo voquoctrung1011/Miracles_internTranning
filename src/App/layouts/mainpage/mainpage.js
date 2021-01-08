@@ -17,8 +17,8 @@ function MainPage() {
             <Bodyinfo />
             <Slide />
             <ProductDemo />
-            <RateUs />
-            <Footer />
+            {/* <RateUs />
+            <Footer /> */}
             {/* <Test/> */}
         </div>
     );

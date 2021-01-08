@@ -20,25 +20,30 @@ function Information() {
                 <div className="bodyinfo">
                     <div className="bodyinfo-container">
                         <div className="bodyinfo-items">
-                            <img src={Plane} />
+                            <img className="icons" src={Plane} />
                             <p>Miễn phí vận chuyển trên toàn quốc </p>
                         </div>
                         <div className="bodyinfo-items">
-                            <img src={Gift} />
+                            <img className="icons" src={Gift} />
                             <p>Nhận ngay quà tặng trị giá 350.000đ</p>
                         </div>
                         <div className="bodyinfo-items">
-                            <img src={Star} />
+                            <img className="icons" src={Star} />
                             <p>Giảm 30% cho đơn hàng trên 5.000.000đ</p>
                         </div>
                     </div>
+
+            {/* Image */}
+
                     <div className="bodyinfo-imgs">
                         <div className="imgs-container1">
                             <div className="imgs-container1-child">
                                 <img src={Tinhdau} />
                                 <img src={Nuochoa} />
                             </div>
-                            <img src={Gold} />
+                            <div >
+                                <img src={Gold} />
+                            </div>
                         </div>
                         <div className="imgs-container2">
                             <img src={Tamtrang} />

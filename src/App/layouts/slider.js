@@ -18,64 +18,66 @@ const Slide = () => {
 
     return (
         <>
-            <Container>
-                <Slider {...settings}>
-                    <div className="bodyinfo-slides">
-                        <div className="bodyinfo-person">
-                            <div className="person-mau">
-                                <img src={Mauanh} />
-                                <div className="person-text">
-                                    <p>"Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ
-                                    dạo<br /> nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với<br />
+            <div className="slide-container">
+                <Container>
+                    <Slider {...settings}>
+                        <div className="bodyinfo-slides">
+                            <div className="bodyinfo-person">
+                                <div className="person-mau">
+                                    <img src={Mauanh} />
+                                    <div className="person-text">
+                                        <p>"Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ
+                                    dạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với
                                     công nghệ cải tiến mới nhất, hảng Rohto."
                                 </p>
-                                    <p>
-                                        TUTILE
+                                        <p>
+                                            TUTILE
                                     <span>_Giảm đốc phát trển sản phẩm</span>
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
-                    <div className="bodyinfo-slides">
-                        <div className="bodyinfo-person">
-                            <div className="person-mau">
-                                <img src={Mauanh} />
-                                <div className="person-text">
-                                    <p>"Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ
-                                    dạo<br /> nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với<br />
+                        <div className="bodyinfo-slides">
+                            <div className="bodyinfo-person">
+                                <div className="person-mau">
+                                    <img src={Mauanh} />
+                                    <div className="person-text">
+                                        <p>"Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ
+                                    dạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với
                                     công nghệ cải tiến mới nhất, hảng Rohto."
                                 </p>
-                                    <p>
-                                        TUTILE
+                                        <p>
+                                            TUTILE
                                     <span>_Giảm đốc phát trển sản phẩm</span>
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
-                    <div className="bodyinfo-slides">
-                        <div className="bodyinfo-person">
-                            <div className="person-mau">
-                                <img src={Mauanh} />
-                                <div className="person-text">
-                                    <p>"Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ
-                                    dạo<br /> nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với<br />
+                        <div className="bodyinfo-slides">
+                            <div className="bodyinfo-person">
+                                <div className="person-mau">
+                                    <img src={Mauanh} />
+                                    <div className="person-text">
+                                        <p>"Vẫn là vẻ bề ngoài vô cùng đơn giản với các tông màu trắng, hồng làm chủ
+                                    dạo nhưng lại tạo ra sức hút kỳ lạ với những ai cầm trên tay sản phẩm ấy! Với
                                     công nghệ cải tiến mới nhất, hảng Rohto."
                                 </p>
-                                    <p>
-                                        TUTILE
+                                        <p>
+                                            TUTILE
                                     <span>_Giảm đốc phát trển sản phẩm</span>
-                                    </p>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
-                </Slider>
-            </Container>
+                    </Slider>
+                </Container>
+            </div>
         </>
     );
 }

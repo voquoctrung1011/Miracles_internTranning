@@ -34,7 +34,6 @@ function HeaderMenu() {
           <div className="menu">
             <div className="menu-img">
               <img src={Logo} alt="Logo" />
-
             </div>
             <div className="menu-text">
               <ul className="list">

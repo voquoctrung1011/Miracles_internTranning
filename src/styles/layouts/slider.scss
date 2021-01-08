@@ -3,6 +3,17 @@
 $tablet-breakpoint: 992px;
 $mobile-breakpoint: 420px;
 
+
+
+.slide-container{
+    @media (max-width: $mobile-breakpoint){    
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+
+
 .bodyinfo-slides{
     width: 50%;
     justify-content: space-between;
@@ -17,10 +28,17 @@ $mobile-breakpoint: 420px;
         background-position: 250px 60px;
         padding-bottom:90px;
     }
+    @media (max-width: $mobile-breakpoint){  
+        width: 90%;
+        padding: 0;
+        margin:0;  
+        background-position: right;
+        
+    }
+
     .bodyinfo-person{
         display: flex;
-        @media (max-width: $tablet-breakpoint){
-            width: 80%;
+        @media (max-width: $mobile-breakpoint){
         }
         .person-mau{    
             display: flex;
@@ -32,15 +50,26 @@ $mobile-breakpoint: 420px;
                 width: 40%;
                 height: 40%;
                 padding-left:60px;
-                
+                padding-top:50px;
+            }
+            @media (max-width: $mobile-breakpoint){
+                width: 100%;  
+                padding:0;
+                flex-direction: column-reverse;
+                margin-top:50px;
             }
             img{
                 padding: 10px;
                 border: 2px solid #cbd4b3;
                 border-radius: 100px;
                 @media (max-width: $tablet-breakpoint){
-                    width: 50%;
+                    width: 40%;
                     height:50%;
+                }
+                @media (max-width: $mobile-breakpoint){    
+                    width: 100px;
+                    
+                    
                 }
             }        
             .person-text{
@@ -50,19 +79,50 @@ $mobile-breakpoint: 420px;
                 font-family: "Open Sans", sans-serif;
                 font-size: 16px;
                 line-height: 25px;
+                display:flex;
+                flex-wrap: wrap;
+                width:60%;
                 @media (max-width: $tablet-breakpoint){
-                    width: 100%;
+                    width: 35rem;
                     font-size: 14px;   
                     position: fixed; 
-                    padding-left:100px;
+                    padding-left:120px;
                     margin-top:0;
+                    flex-wrap: wrap;
+                }
+                @media (max-width: $mobile-breakpoint){ 
+                    width: 20rem;   
+                    font-size: 14px;
+                    margin-left: 20px;
+                    padding:0;
+                    line-height: 1.5;
+                    position: static;
+                    color:#131313;
+                    text-align: center;
+                    letter-spacing: 0.5px;
+                }
+                p{
+                    width: 100%;
                 }
                 p:nth-child(2){
                     padding-top:20px;
+                    @media (max-width: $mobile-breakpoint){
+                        padding:60px 0 0 100px;
+                        position: fixed;
+                        height: auto;
+                        display: flex;
+                        flex-wrap: wrap;
+                        padding-top:130px;
+                        width: 350px;
+                    }
                     span{
                         color: #737373;
                         font-size: 14px;
                         font-style: italic;
+                        @media (max-width: $mobile-breakpoint){
+                            // padding-top:20px;
+                            // padding-right:200px;
+                        }
                     }
                 }
             }
