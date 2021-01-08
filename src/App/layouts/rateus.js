@@ -89,15 +89,15 @@ const RateUs = () => {
                                 <div className="text-gioithieu">
                                     <p>GIỚI THIỆU CHUNG VỀ MỸ PHẨM HANDMADE MANDALA</p>
                                     <p>
-                                        Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ<br />
-                                    quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi<br />
-                                    bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.Hi, chào<br />
-                                    các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại<br />
-                                    hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi <br />
-                                    mà dân tình xô nhau đi tắm Free để giải nhiệt.Hi, chào các<br />
-                                    nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm<br />
-                                    nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà<br />
-                                    dân tình xô nhau đi tắm Free để giải nhiệt.<br />
+                                        Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ
+                                    quay lại hâm nóng cái Blog này vào một ngày đầu hè nóng oi
+                                    bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.Hi, chào
+                                    các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại
+                                    hâm nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi 
+                                    mà dân tình xô nhau đi tắm Free để giải nhiệt.Hi, chào các
+                                    nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ quay lại hâm
+                                    nóng cái Blog này vào một ngày đầu hè nóng oi bức, khi mà
+                                    dân tình xô nhau đi tắm Free để giải nhiệt.
                                     </p>
                                     <a className="xemthem" href="#">Xem thêm</a>
                                 </div>
@@ -111,9 +111,9 @@ const RateUs = () => {
                                 <div className="text-review">
                                     <p>REVIEW SON KEM BOURJOIS VELVET</p>
                                     <p>
-                                        Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ<br />
-                                    quay lại hăm nóng cái Blog này vào một ngày đầu hè nóng oi<br />
-                                    bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.<br />
+                                        Hi, chào các nàng ... sau khá nhiều lời hứa hão thì hôm nay tớ
+                                    quay lại hăm nóng cái Blog này vào một ngày đầu hè nóng oi
+                                    bức, khi mà dân tình xô nhau đi tắm Free để giải nhiệt.
                                     </p>
                                     <a href="#">Bởi NamTran (27/05/2015)</a>
                                 </div>

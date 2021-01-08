@@ -1,5 +1,4 @@
-@import "~slick-carousel/slick/slick.css"; 
-@import "~slick-carousel/slick/slick-theme.css";
+
 $tablet-breakpoint: 992px;
 $mobile-breakpoint: 420px;
 
@@ -7,12 +6,17 @@ $mobile-breakpoint: 420px;
     margin-top:40px;
     height:50rem;
     background-image: url("../../assets/images/hot-product--background.png");
-
     background-size:cover;
+    @media (max-width: $tablet-breakpoint){    
+    }
     .product-text{
         padding-top:80px;
         width: 50%;
         margin: 0 auto;
+        @media (max-width: $tablet-breakpoint){    
+            width: 70%;
+            font-size: 12px;
+        }
         .product-text-sanpham{
             display: flex;
             justify-content: space-evenly;
@@ -100,14 +104,22 @@ $mobile-breakpoint: 420px;
     width: 100%;
     margin: 0 auto;
     margin-top:100px;
+    @media (max-width: $tablet-breakpoint){    
+    }
 }
 
 .product-container{
     width: 50%;
+    @media (max-width: $tablet-breakpoint){    
+    }
     img{
         width: 70%;
         height: 50%;
         margin: 0 auto;
+        @media (max-width: $tablet-breakpoint){    
+            width: 60%;
+            height: 30%;
+        }
     }
     .table-price{
         background-color: #fff;
@@ -140,6 +152,10 @@ $mobile-breakpoint: 420px;
             margin: 0 auto;
             justify-content: space-evenly;
             text-align: center;
+            @media (max-width: $tablet-breakpoint){    
+                width: 90%;
+
+            }
             .price1{
                 color: #789629;          
                 font-size: 14px;
@@ -239,23 +255,25 @@ $mobile-breakpoint: 420px;
 }
 }
 .slick-next{
-    right:170px;
+    top:100px;
+    right:100px;
     width: 100px;
     height: 100px;
 }
 .slick-prev{
-    left:170px;
+    top:100px;
+    left:100px;
     width: 100px;
     height: 100px;
     z-index: 2;
 }
 .slick-next::before{
-    content: ">>";
+    content: ">";
     font-size:50px;
     color:grey;
 }
 .slick-prev::before{
-    content: "<<";
+    content: "<";
     font-size:50px;
     color:grey;
 }

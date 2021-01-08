@@ -22,29 +22,29 @@ const footer = () => {
                                 <p className="title">LIÊN HỆ VỚI CHÚNG TÔI</p>
                                 <div className="vitri">
                                     <div className="vitri-title">
-                                        <img src={Map} />
-                                        <p>Tầng 4, Tòa nhà Hanoi Group Số 442 Đội Cấn,<br />
+                                        <img className="img-item" src={Map} />
+                                        <p>Tầng 4, Tòa nhà Hanoi Group Số 442 Đội Cấn,
                                      P.Cống Vị, Q. Ba Đình, Hà Nội
                                      </p>
                                     </div>
                                     <div className="ul-lienhe">
                                         <ul>
                                             <li>
-                                                <img src={Phone} />
+                                                <img className="img-item" src={Phone} />
                                                 <a>(04) 6674 2332</a>
                                             </li>
                                             <li>
-                                                <img src={Phone} />
+                                                <img className="img-item" src={Phone} />
                                                 <a>(04) 6674 2332</a>
                                             </li>
                                         </ul>
                                         <ul>
                                             <li>
-                                                <img src={Phoneban} />
+                                                <img className="img-item" src={Phoneban} />
                                                 <a>(04) 6674 2332</a>
                                             </li>
                                             <li>
-                                                <img src={Email} />
+                                                <img className="img-item" src={Email} />
                                                 <a>Support@bizweb.vn</a>
 
                                             </li>
@@ -91,7 +91,7 @@ const footer = () => {
                         </Row>
                     </div>
                     <div className="footer-image">
-                        <p className="textFooter">© Copyright 2008-2014 DKT Technology JSC</p>
+                        <p>c© Copyright 2008-2014 DKT Technology JSC</p>
                         <img className="imgFooter" src={imgFooter} />
                     </div>
                 </div>

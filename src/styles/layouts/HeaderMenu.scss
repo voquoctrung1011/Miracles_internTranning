@@ -394,9 +394,13 @@ $mobile-breakpoint: 420px;
         }
         ul{
             li{
-                @media (max-width: $tablet-breakpoint){
-                    &:hover{
-                        color:#4CAF50;
+                a{
+                    @media (max-width: $tablet-breakpoint){
+                        color:black;
+                        font-weight: bold;
+                        &:hover{
+                            color:#4CAF50;
+                        }
                     }
                 }
             }
