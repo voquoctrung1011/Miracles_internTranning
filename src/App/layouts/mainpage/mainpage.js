@@ -5,6 +5,7 @@ import Slide from '../slider'
 import ProductDemo from '../productDemo'
 import RateUs from '../rateus'
 import Footer from '../footer'
+import Test from '../test'
 
 
 
@@ -18,6 +19,7 @@ function MainPage() {
             <ProductDemo />
             <RateUs />
             <Footer />
+            {/* <Test/> */}
         </div>
     );
 }

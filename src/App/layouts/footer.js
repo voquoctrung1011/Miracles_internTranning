@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Container } from 'reactstrap';
 import { Row, Col } from 'antd';
 import imgFooter from "../../assets/images/footer_extend.png";
-import Phone from "../../assets/images/call.png";
-import Email from "../../assets/images/email.png";
-import Phoneban from "../../assets/images/phoneban.png";
 import Map from "../../assets/images/map.png";
+import Phone from "../../assets/images/phone.png";
+import Phoneban from "../../assets/images/phoneban.png";
+import Email from "../../assets/images/email.png";
 
 
 
@@ -27,11 +27,28 @@ const footer = () => {
                                      P.Cống Vị, Q. Ba Đình, Hà Nội
                                      </p>
                                     </div>
-                                    <div>
-                                        <p>(04) 6674 2332</p>
-                                        <p>(04) 6674 2332</p>
-                                        <p>(04) 6674 2332</p>
-                                        <p>Support@bizweb.vn</p>
+                                    <div className="ul-lienhe">
+                                        <ul>
+                                            <li>
+                                                <img src={Phone} />
+                                                <a>(04) 6674 2332</a>
+                                            </li>
+                                            <li>
+                                                <img src={Phone} />
+                                                <a>(04) 6674 2332</a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li>
+                                                <img src={Phoneban} />
+                                                <a>(04) 6674 2332</a>
+                                            </li>
+                                            <li>
+                                                <img src={Email} />
+                                                <a>Support@bizweb.vn</a>
+
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </Col>
@@ -73,7 +90,10 @@ const footer = () => {
                             </Col>
                         </Row>
                     </div>
-                    <img className="imgFooter" src={imgFooter} />
+                    <div className="footer-image">
+                        <p className="textFooter">© Copyright 2008-2014 DKT Technology JSC</p>
+                        <img className="imgFooter" src={imgFooter} />
+                    </div>
                 </div>
             </Container>
         </>

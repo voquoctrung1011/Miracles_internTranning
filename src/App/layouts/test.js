@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+
+
+import React, { Component } from "react";
 import Slider from "react-slick";
 import { Container, Row, Col } from 'reactstrap';
 import { Button, Radio, Carousel } from 'antd';
@@ -12,71 +14,18 @@ import Product7 from "../../assets/images/product_7.png";
 import Product9 from "../../assets/images/product_9.png";
 import Heart from "../../assets/images/heart.png";
 import Reload from "../../assets/images/reload.png";
-
-
-const Information = () => {
-
-
-    const [isOpen, setIsOpen] = useState(false)
-
+export default class MultipleItems extends Component {
+    render() {
         const settings = {
-            arrows: true,
-            asNavfor:true,
+            dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1
-    };
-
-    const IsShowButton = () => {
-        if (!isOpen) {
-            setIsOpen(true);
-        } else {
-            setIsOpen(false);
-        }
-    }
-
-    function onChange(a, b, c) {
-        console.log(a, b, c);
-    }
-
-    const contentStyle = {
-        height: '160px',
-        color: '#fff',
-        lineHeight: '160px',
-        textAlign: 'center',
-        background: '#364d79',
-    };
-
-    return (
-        <>
-            <Container>
-                <div className="product-demo">
-                    <div className="product-text">
-                        <div className="product-text-sanpham">
-                            <p>Sản phẩm mới</p>
-                            <p>Sản phẩm bán chạy</p>
-                            <p>Sản phẩn đặc biệt</p>
-                        </div>
-                        <div className="line">
-                            <div className="line-before"></div>
-                            <div className="line-center">//////////////</div>
-                            <div className="line-after"></div>
-
-                        </div>
-                        <div className="product-text-list">
-                            <ul>
-                                <li>Mỹ phẩm</li>
-                                <li>Chăm sóc da</li>
-                                <li>Dành cho tóc</li>
-                                <li>Nước hoa</li>
-                                <li>Trang sức</li>
-                                <li>Quà tặng</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="products">
+        };
+        return (
+            <>
+            <div className="products">
                 <Slider  {...settings}>
 
                     <div className="product-container">
@@ -340,12 +289,7 @@ const Information = () => {
 
                 </Slider>
                 </div>
-                   
-                </div>
-
-            </Container>
-        </>
-
-    );
+            </>
+        );
+    }
 }
-export default Information;
