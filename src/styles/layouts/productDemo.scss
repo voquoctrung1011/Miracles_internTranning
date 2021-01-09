@@ -170,6 +170,9 @@ $mobile-breakpoint: 420px;
         border-top: 1px dashed #e6e6e6;
         padding-top:20px; ;
         height:10rem;
+        @media (max-width: $mobile-breakpoint){    
+            height:auto;
+        }
         .product-title{
             margin-bottom: 10px;
             color: #b4b4b4;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Slider from "react-slick";
 import { Container } from 'reactstrap';
 import { Row, Col } from 'antd';
 import imgFooter from "../../assets/images/footer_extend.png";
@@ -11,14 +12,40 @@ import Email from "../../assets/images/email.png";
 
 const footer = () => {
 
+    const settings = {  
+        infinite: true,
+        speed: 500,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            // {
+            //     breakpoint: 1000,
+            //     settings: {
+            //         slidesToShow: 3,
+            //         slidesToScroll: 1,
+            //         infinite: true,
+            //         dots: false
+            //     }
+            // }
+        ]
+    };
 
     return (
         <>
             <Container>
                 <div className="footer">
                     <div className="container">
-                        <Row>
-                            <Col span={8}>
+                        <Row className="row-container">
+                            <Col className="col1" span={8}>
                                 <p className="title">LIÊN HỆ VỚI CHÚNG TÔI</p>
                                 <div className="vitri">
                                     <div className="vitri-title">
@@ -52,7 +79,7 @@ const footer = () => {
                                     </div>
                                 </div>
                             </Col>
-                            <Col span={4}>
+                            <Col className="col2" span={4}>
                                 <p className="title">CHUYỂN HÀNG</p>
                                 <ul className="list">
                                     <li>mua sắm trực tuyến</li>
