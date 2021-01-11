@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 import { Container, Row, Col } from 'reactstrap';
-import Mauanh from "../../assets/images/person-mau.png";
+import Mauanh from "../../../assets/images/person-mau.png";
 
 
 

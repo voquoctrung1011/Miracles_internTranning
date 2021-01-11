@@ -226,79 +226,6 @@ $mobile-breakpoint: 420px;
             }           
         }
         .button-{
-            display:none;
-            border-color:wheat;
-            margin: 0 auto;
-            width: 60%;
-            @media (max-width: $mobile-breakpoint){ 
-                width: 50%;   
-                display: block;
-                margin: 0 auo;
-                display:flex;
-                padding-top:30px;
-                padding-bottom:20px;
-                justify-content: space-evenly;
-                border-color:wheat;
-                .button-price{
-                    Button{
-                        border:2px solid #A9A9A9;
-                        background-color: white;
-                        width: 120px;
-                        height: 35px;
-                        border-radius: 200px;
-                        color: #000;
-                        font-family: "Open Sans", sans-serif;
-                        font-size: 11px;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                        &:hover{
-                            background-color:#7ba12d;
-                            color: white;
-                        }
-                    }
-                }
-                .button-heart{
-                    Button{
-                        border:2px solid #A9A9A9;                        background-color: white;
-                        color: #000;
-                        width: 35px;
-                        height: 35px;
-                        &:hover{
-                            background-color:#7ba12d;
-                            color: white;
-                        }
-                        img{
-                            width:15px;  
-                            height:20px;
-                            padding-top:5px;  
-                        }
-                    }
-                }
-                .button-reload{
-                    Button{
-                        border:2px solid #A9A9A9;
-                        background-color: white;
-                        color: #000;
-                        width: 35px;
-                        height: 35px;
-                        &:hover{
-                            background-color:#7ba12d;
-                            color: white;
-                        }
-                        img{
-                            width:15px;  
-                            height:20px;
-                            padding-top:5px;  
-                        }
-                    }
-                }
-            }
-    }   
-}
-}
-.product-container:hover{
-    .table-price:hover{ 
-        .button-{
             margin: 0 auo;
             display:flex;
             padding-top:30px;
@@ -325,7 +252,8 @@ $mobile-breakpoint: 420px;
             }
             .button-heart{
                 Button{
-                    border:2px solid #A9A9A9;                        background-color: white;
+                    border:2px solid #A9A9A9;
+                    background-color: white;
                     color: #000;
                     width: 35px;
                     height: 35px;
@@ -358,9 +286,14 @@ $mobile-breakpoint: 420px;
                     }
                 }
             }
-        }
-    }
+        }   
 }
+}
+// .product-container:hover{
+//     .table-price:hover{ 
+
+//     }
+// }
 }
 .slick-next{
     top:100px;
@@ -384,4 +317,7 @@ $mobile-breakpoint: 420px;
     content: "<";
     font-size:50px;
     color:grey;
+}
+.slick-track{
+    
 }

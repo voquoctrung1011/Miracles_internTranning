@@ -1,26 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import HeaderMenu from './layouts/HeaderMenu'
-// import Bodyinfo from './layouts/bodyInfo'
-// import Slide from './layouts/slider'
-// import ProductDemo from './layouts/productDemo'
-import MainPage from './layouts/mainpage/mainpage'
+import MainPage from './page/mainpage';
+import Gioithieu from './page/giothieu';
 import 'antd/dist/antd.css';
-
-
 
 
 function HomePage() {
   return (
     <div className="home">
-      {/* <HeaderMenu />
-      <Bodyinfo />
-      <Slide />
-      <ProductDemo/> */}
       <Router>
         <Switch>
-          {/* <Route exact path="/layouts/mainpage" render={() => <MainPage />} /> */}
-          <MainPage />
+          <Route exact path="/" render={() => <MainPage />} />
+          {/* <MainPage /> */}
+        </Switch>
+        <Switch>
+          <Route exact path="/gioithieu" render={() => <Gioithieu />} />
         </Switch>
       </Router>
     </div>

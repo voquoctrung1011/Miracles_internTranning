@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Plane from "../../assets/images/plane.png";
-import Gift from "../../assets/images/gift.png";
-import Star from "../../assets/images/star.png";
-import Tinhdau from "../../assets/images/tinhdau.png";
-import Nuochoa from "../../assets/images/nuochoa.png";
-import Gold from "../../assets/images/gold.png";
-import Tamtrang from "../../assets/images/tamtrang.png";
-import Trangsuc from "../../assets/images/trangsuc.png";
-import Daisy from "../../assets/images/daisy.png";
+import Plane from "../../../assets/images/plane.png";
+import Gift from "../../../assets/images/gift.png";
+import Star from "../../../assets/images/star.png";
+import Tinhdau from "../../../assets/images/tinhdau.png";
+import Nuochoa from "../../../assets/images/nuochoa.png";
+import Gold from "../../../assets/images/gold.png";
+import Tamtrang from "../../../assets/images/tamtrang.png";
+import Trangsuc from "../../../assets/images/trangsuc.png";
+import Daisy from "../../../assets/images/daisy.png";
 
 
 function Information() {

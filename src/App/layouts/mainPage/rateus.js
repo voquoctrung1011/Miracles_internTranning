@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Container } from 'reactstrap';
 import Slider from "react-slick";
 import { Row, Col, Input, Button, Tag } from 'antd';
-import Facebook from "../../assets/images/facebook.png";
-import Twitter from "../../assets/images/twitter.png";
-import Instagram from "../../assets/images/instagram.png";
-import Google from "../../assets/images/google.png";
-import Pinterest from "../../assets/images/pinterest.png";
-import Linkedin from "../../assets/images/linkedin.png";
-import Logo from "../../assets/images/logo.png";
-import Phunu from "../../assets/images/phunu.png";
+import Facebook from "../../../assets/images/facebook.png";
+import Twitter from "../../../assets/images/twitter.png";
+import Instagram from "../../../assets/images/instagram.png";
+import Google from "../../../assets/images/google.png";
+import Pinterest from "../../../assets/images/pinterest.png";
+import Linkedin from "../../../assets/images/linkedin.png";
+import Logo from "../../../assets/images/logo.png";
+import Phunu from "../../../assets/images/phunu.png";
 
 const RateUs = () => {
 

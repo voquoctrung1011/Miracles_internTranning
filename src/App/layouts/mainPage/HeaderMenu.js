@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import Logo from "../../assets/images/logo.png";
-import Search from "../../assets/images/search.png";
-import Dropdown from "../../assets/images/dropdown.png";
-import Cart from "../../assets/images/cart.png";
+import React, { useState, useEffect } from 'react';
+import { Container } from 'reactstrap';
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+
+import Logo from "../../../assets/images/logo.png";
+import Search from "../../../assets/images/search.png";
+import Dropdown from "../../../assets/images/dropdown.png";
+import Cart from "../../../assets/images/cart.png";
 // import Up from "../../assets/images/up.png";
 // import Up2 from "../../assets/images/up2.png";
-import Product from "../../assets/images/product.png";
-import Banner1 from "../../assets/images/banner1.png";
-import Banner2 from "../../assets/images/banner2.png";
-import MenuRepos from "../../assets/images/menu-repos.png";
-import Exit from "../../assets/images/exit.png";
+import Product from "../../../assets/images/product.png";
+import Banner1 from "../../../assets/images/banner1.png";
+import Banner2 from "../../../assets/images/banner2.png";
+import MenuRepos from "../../../assets/images/menu-repos.png";
+import Exit from "../../../assets/images/exit.png";
 
-function HeaderMenu() {
+
+
+const HeaderMenu = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
-  const [width, setWidth] = useState(920)
+  const [units, setUnits] = useState();
+  
+
+  const [cart, setCart] = useState([
+    {
+      id: "id",
+      name: "name",
+      description: "description",
+      price: "price",
+      units: 1
+    }
+  ])
 
   const showMenu = () => {
     if (!isOpenMenu)
@@ -26,6 +41,23 @@ function HeaderMenu() {
       setIsOpenMenu(false);
   }
 
+  // useEffect(() => {
+  //   const handleAddFunc = (product) => {
+  //     console.log(product)
+  //     // setCart([
+  //     //   {
+  //     //     id: { product.id },
+  //     //     name: { product.name },
+  //     //     description: { product.description },
+  //     //     price: { product.price }
+  //     //   }
+  //     // ])
+  //   }, []
+  // });
+
+  const handleAddFunc = (value) =>{
+    console.log( value)
+  }
 
   return (
     <>
@@ -37,8 +69,8 @@ function HeaderMenu() {
             </div>
             <div className="menu-text">
               <ul className="list">
-                <li className="list-item"><a href="#">Trang chủ</a></li>
-                <li className="list-item"><a href="#">Giới thiệu</a></li>
+                <li className="list-item"><NavLink exact to="/" >Trang chủ</NavLink></li>
+                <li className="list-item"><NavLink exact to="/gioithieu" >Giới thiệu</NavLink></li>
                 <li
                   className="list-item-sanpham"
                   onMouseOver={() => setIsOpen(true)}
@@ -123,6 +155,7 @@ function HeaderMenu() {
               </>
             )
           }
+
           {/* dropdown CART */}
           {
             isOpenCart && (
@@ -134,6 +167,7 @@ function HeaderMenu() {
                   onMouseOut={() => setIsOpenCart(false)}
                 >
                   <div className="carts">
+
                     <div className="detail-cart">
                       <img src={Product} alt="Product" />
                       <div className="detail-cart-text">
@@ -145,6 +179,7 @@ function HeaderMenu() {
                         </p>
                       </div>
                     </div>
+
                     <div className="detail-cart">
                       <img src={Product} alt="Product" />
                       <div className="detail-cart-text">
@@ -156,6 +191,7 @@ function HeaderMenu() {
                         </p>
                       </div>
                     </div>
+
                     <div className="sum-price">
                       <p>Tổng số: </p>
                       <p className="cart-price">
@@ -171,6 +207,14 @@ function HeaderMenu() {
 
                   </div>
                 </div>
+                {/* <ul style={{ paddingTop: "10rem" }}>
+                  {cart.map(c => (
+                    <li>
+                      {c.a} | units {c.units}
+                    </li>
+                  ))}
+                </ul> */}
+                {/* <Test addProduct={handleAddFunc} /> */}
               </>
             )
           }

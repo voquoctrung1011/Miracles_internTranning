@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Slider from "react-slick";
 import { Container } from 'reactstrap';
 import { Row, Col } from 'antd';
-import imgFooter from "../../assets/images/footer_extend.png";
-import Map from "../../assets/images/map.png";
-import Phone from "../../assets/images/phone.png";
-import Phoneban from "../../assets/images/phoneban.png";
-import Email from "../../assets/images/email.png";
+import imgFooter from "../../../assets/images/footer_extend.png";
+import Map from "../../../assets/images/map.png";
+import Phone from "../../../assets/images/phone.png";
+import Phoneban from "../../../assets/images/phoneban.png";
+import Email from "../../../assets/images/email.png";
 
 
 
