@@ -1,6 +1,8 @@
 $tablet-breakpoint: 992px;
 $mobile-breakpoint: 420px;
 
+
+
 .homess{
     width: 100%;
     margin: 0 auto;
@@ -10,8 +12,7 @@ $mobile-breakpoint: 420px;
         max-width: 100%;
     }  
     @media (max-width: $mobile-breakpoint){
-        background-color: #f1f1f1;
-        width: 100%;
+        background-color: #f4f4f475;
     }  
     .menuu{
         display: flex;
@@ -23,12 +24,13 @@ $mobile-breakpoint: 420px;
         position: fixed;
         padding-top:1rem;
         background-color: #f4f4f475;
+        z-index: 3;
         @media (max-width: $tablet-breakpoint){
             width: 100%;
             border-bottom: 1px solid #e7e7e7;
         }   
         @media (max-width: $mobile-breakpoint){
-            width: 70%;
+            width: 100%;
         }   
         .menu-imgg{
             width: 20%;
@@ -37,8 +39,9 @@ $mobile-breakpoint: 420px;
                 width: 60%;
             }
             @media (max-width: $mobile-breakpoint){
+               
                 float:left;
-                width: 80%;
+                width: 50%;
             }
         }
         .menu-textt{
@@ -78,6 +81,7 @@ $mobile-breakpoint: 420px;
             @media (max-width: $mobile-breakpoint){
                 float:right;
                 display: flex;
+                width: 40%;
                 
             }   
             img{
@@ -140,7 +144,7 @@ $mobile-breakpoint: 420px;
         background-color:#4CAF50;
     }
 }
-.item-sanpham-hover{
+.item-sanpham-hoverr{
     position: absolute;
     z-index: 1;
     top: 95px;
@@ -299,9 +303,9 @@ $mobile-breakpoint: 420px;
         background-color: #f4f4f475;
         z-index: 1;
         margin-top:3.7rem;
-        animation:menu-repos 1.5s;
-        -webkit-animation:menu-repos 1.5s;
-        @keyframes menu-repos{
+        animation:menu-reposs 1.5s;
+        -webkit-animation:menu-reposs 1.5s;
+        @keyframes menu-reposs{
             from {
                 transform: translateY(-50px);
             }

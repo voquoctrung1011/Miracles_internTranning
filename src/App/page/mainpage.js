@@ -4,7 +4,7 @@ import Bodyinfo from '../layouts/mainPage/bodyInfo'
 import Slide from '../layouts/mainPage/slider'
 import ProductDemo from '../layouts/mainPage/productDemo'
 import RateUs from '../layouts/mainPage/rateus'
-import Footer from '../layouts/mainPage/footer'
+import Footer from '../layouts/mainPage/footeMainpage'
 import Test from '../layouts/mainPage/test'
 import {AppProvider} from '../../AppContext'
 

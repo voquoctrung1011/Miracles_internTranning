@@ -92,7 +92,7 @@ const Menu = () => {
             isOpen && (
               <>
                 {/* <div className="hover-width"></div> */}
-                <div className="img-upu" />
+                <div className="img-upp" />
                 <div
                   onMouseOver={() => setIsOpen(true)}
                   onMouseOut={() => setIsOpen(false)}

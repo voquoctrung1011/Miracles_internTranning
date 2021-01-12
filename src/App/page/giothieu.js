@@ -2,7 +2,7 @@ import React from 'react';
 
 import Menu from '../layouts/gioithieu/menu'
 import BodyAbout from '../layouts/gioithieu/body'
-import Footer from '../layouts/mainPage/footer'
+import Footer from '../layouts/gioithieu/footerAbout'
 import Test from '../layouts/mainPage/test'
 
 import {AppProvider} from '../../AppContext'
