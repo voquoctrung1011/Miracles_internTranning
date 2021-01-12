@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import { Container } from 'reactstrap';
-import { Row, Col } from 'antd';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import About from '../../../assets/images/about.png';
