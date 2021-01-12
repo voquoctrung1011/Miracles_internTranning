@@ -82,7 +82,7 @@ const HeaderMenu = () => {
                 </li>
                 <li className="list-item"><a href="#">Tin tức </a></li>
                 <li className="list-item"><a href="#">Bản đồ </a></li>
-                <li className="list-item"><a href="#">Liên hệ</a></li>
+                <li className="list-item"><NavLink exact to="/lienhe" >Liên hệ</NavLink></li>
               </ul>
             </div>
             <div className="menu-icon">

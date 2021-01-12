@@ -1,8 +1,12 @@
 import React from 'react';
+
+import { Form, Input, Button, Checkbox, Descriptions } from 'antd';
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
-import { Descriptions } from 'antd';
+
 
 const { MarkerWithLabel } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
 
@@ -71,20 +75,6 @@ class LocationSearchModal extends React.Component {
             console.error("Geolocation is not supported by this browser!");
         }
     };
-
-    // shouldComponentUpdate(nextProps, nextState, nextContext) {
-    //     if (
-    //         this.state.markerPosition.lat !== this.state.center.lat ||
-    //         this.state.address !== nextState.address ||
-    //         this.state.city !== nextState.city ||
-    //         this.state.area !== nextState.area ||
-    //         this.state.state !== nextState.state
-    //     ) {
-    //         return true
-    //     } else if (this.state.mapPosition.lat === nextState.mapPosition.lat) {
-    //         return false
-    //     }
-    // }
 
     getCity = (addressArray) => {
         let city = '';
@@ -190,19 +180,32 @@ class LocationSearchModal extends React.Component {
         })
     };
 
-    // const AsyncMap = compose(
-    //     withProps({
-    //         googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyALVjLwOIM1gf7EzdJJVmWLKdLP-yZGTcw&v=3.exp&libraries=geometry,drawing,places",
-    //         loadingElement: <div style={{ height: `100%` }} />,
-    //         containerElement: <div style={{ height: `400px` }} />,
-    //         mapElement: <div style={{ height: `100%` }} />,
-    //     }),
-    //     withScriptjs,
-    //     withGoogleMap
-    // )((props) =>
-    //     <GoogleMap
+
 
     render() {
+        const layout = {
+            labelCol: {
+                span: 8,
+            },
+            wrapperCol: {
+                span: 16,
+            },
+        };
+        const tailLayout = {
+            wrapperCol: {
+                offset: 8,
+                span: 16,
+            },
+        };
+
+        const onFinish = (values) => {
+            console.log('Success:', values);
+        };
+
+        const onFinishFailed = (errorInfo) => {
+            console.log('Failed:', errorInfo);
+        };
+
         const AsyncMap = withScriptjs(
             withGoogleMap(
                 props => (
@@ -210,9 +213,6 @@ class LocationSearchModal extends React.Component {
                         defaultZoom={this.state.zoom}
                         defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
                     >
-                        {/* InfoWindow on top of marker */}
-
-                        {/*Marker*/}
                         <Marker
                             google={this.props.google}
                             name={'Dolores park'}
@@ -230,17 +230,7 @@ class LocationSearchModal extends React.Component {
                         </InfoWindow>
                         <Marker />
 
-                        {/* <MarkerWithLabel
-                            position={{ lat: -34.397, lng: 150.644 }}
-                            labelAnchor={new google.maps.Point(0, 0)}
-                            labelStyle={{ backgroundColor: "yellow", fontSize: "32px", padding: "16px" }}
-                        >
-                            <div>Hello There!</div>
-                        </MarkerWithLabel> */}
-
-
-                        {/* For Auto complete Search Box */}
-                        <Autocomplete
+                        {/* <Autocomplete
                             style={{
                                 width: '100%',
                                 height: '40px',
@@ -250,35 +240,104 @@ class LocationSearchModal extends React.Component {
                             }}
                             onPlaceSelected={this.onPlaceSelected}
                             types={['(regions)']}
-                        />
+                        /> */}
                     </GoogleMap>
                 )
             )
         );
 
         return (
-            <div style={{ padding: '1rem', margin: '0 auto', maxWidth: 1000 }}>
-                <h1>Google Map Basic</h1>
-                <Descriptions bordered>
-                    <Descriptions.Item label="City">{this.state.city}</Descriptions.Item>
-                    <Descriptions.Item label="Area">{this.state.area}</Descriptions.Item>
-                    <Descriptions.Item label="State">{this.state.state}</Descriptions.Item>
-                    <Descriptions.Item label="Address">{this.state.address}</Descriptions.Item>
-                </Descriptions>
+            <>
+                <div className="body-lienhe">
+                    <div className="link">
+                        <NavLink className="NavLink" exact to="/" >Home</NavLink>
+                        <NavLink className="NavLink" exact to="/lienhe" >Liên hệ</NavLink>
+                    </div>
+                    <div className="body-lienhe-container">
 
-                <AsyncMap
-                    googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_1bELJXfmTl4Y0oSzluEE4xnarOEYFBg&libraries=places"
-                    loadingElement={
-                        <div style={{ height: `100%` }} />
-                    }
-                    containerElement={
-                        <div style={{ height: this.state.height }} />
-                    }
-                    mapElement={
-                        <div style={{ height: `100%` }} />
-                    }
-                />
-            </div>
+                        <div className="map" >
+                            <p>LIÊN HỆ</p>
+                            <AsyncMap
+                                googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_1bELJXfmTl4Y0oSzluEE4xnarOEYFBg&libraries=places"
+                                loadingElement={
+                                    <div style={{ height: `100%` }} />
+                                }
+                                containerElement={
+                                    <div style={{ height: this.state.height }} />
+                                }
+                                mapElement={
+                                    <div style={{ height: `100%` }} />
+                                }
+                            />
+                        </div>
+
+                        <div className="form-lienhe">
+                            <p>GỬI EMAIL CHO CHÚNG TÔI</p>
+                            <Form
+                                className="form-lienhe-submit"
+                                style={{ float: 'left', width: '100%', display: 'flex', flexDirection: 'column' }}
+                                {...layout}
+                                name="basic"
+                                initialValues={{
+                                    remember: true,
+                                }}
+                                onFinish={onFinish}
+                                onFinishFailed={onFinishFailed}
+                            >
+                                <Form.Item
+                                    style={{ float: 'left', width: '100%' }}
+                                    label="Tên"
+                                    name="name"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your name!',
+                                        },
+                                    ]}
+                                >
+                                    <Input />
+                                </Form.Item>
+
+                                <Form.Item
+                                    label="Email"
+                                    name="email"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your email!',
+                                        },
+                                    ]}
+                                >
+                                    <Input />
+                                </Form.Item>
+
+                                <Form.Item
+                                    label="Tin nhắn"
+                                    name="message"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your messagae!',
+                                        },
+                                    ]}
+                                >
+                                    <Input style={{ paddingBottom: '80px' }} />
+                                </Form.Item>
+
+                                <Form.Item {...tailLayout}>
+                                    <Button
+                                        style={{ float: 'right', backgroundColor: 'black' }}
+                                        type="primary"
+                                        htmlType="submit"
+                                    >
+                                        Gửi
+                            </Button>
+                                </Form.Item>
+                            </Form>
+                        </div>
+                    </div>
+                </div>
+            </>
         )
     }
 

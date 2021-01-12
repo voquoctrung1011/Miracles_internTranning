@@ -63,7 +63,7 @@ const Menu = () => {
                 </li>
                 <li className="list-itemm"><a href="#">Tin tức </a></li>
                 <li className="list-itemm"><a href="#">Bản đồ </a></li>
-                <li className="list-itemm"><a href="#">Liên hệ</a></li>
+                <li className="list-itemm"><NavLink exact to="/lienhe" >Liên hệ</NavLink></li>
               </ul>
             </div>
             <div className="menu-iconn">
