@@ -22,7 +22,7 @@ const HeaderMenu = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [units, setUnits] = useState();
-  
+
 
   const [cart, setCart] = useState([
     {
@@ -55,8 +55,8 @@ const HeaderMenu = () => {
   //   }, []
   // });
 
-  const handleAddFunc = (value) =>{
-    console.log( value)
+  const handleAddFunc = (value) => {
+    console.log(value)
   }
 
   return (
@@ -75,10 +75,9 @@ const HeaderMenu = () => {
                   className="list-item-sanpham"
                   onMouseOver={() => setIsOpen(true)}
                 >
-                  <a href="#">
-                    Sản phẩm
+                  <NavLink exact to="/sanpham" >Sản phẩm
                   <img src={Dropdown} />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="list-item"><a href="#">Tin tức </a></li>
                 <li className="list-item"><a href="#">Bản đồ </a></li>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from './page/mainpage';
 import Gioithieu from './page/giothieu';
 import Lienhe from './page/lienhe';
+import Sanpham from './page/sanpham';
 import 'antd/dist/antd.css';
 
 
@@ -19,6 +20,9 @@ function HomePage() {
         </Switch>
         <Switch>
           <Route exact path="/lienhe" render={() => <Lienhe />} />
+        </Switch>
+        <Switch>
+          <Route exact path="/sanpham" render={() => <Sanpham />} />
         </Switch>
       </Router>
     </div>

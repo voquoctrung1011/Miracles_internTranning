@@ -18,7 +18,7 @@ const Menu = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [units, setUnits] = useState();
-  
+
 
   const [cart, setCart] = useState([
     {
@@ -50,16 +50,15 @@ const Menu = () => {
             </div>
             <div className="menu-textt">
               <ul className="listt">
-              <li className="list-itemm"><NavLink exact to="/" >Trang chủ</NavLink></li>
+                <li className="list-itemm"><NavLink exact to="/" >Trang chủ</NavLink></li>
                 <li className="list-itemm"><NavLink exact to="/gioithieu" >Giới thiệu</NavLink></li>
                 <li
                   className="list-item-sanphamm"
                   onMouseOver={() => setIsOpen(true)}
                 >
-                  <a href="#">
-                    Sản phẩm
+                  <NavLink exact to="/sanpham" >Sản phẩm
                   <img src={Dropdown} />
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="list-itemm"><a href="#">Tin tức </a></li>
                 <li className="list-itemm"><a href="#">Bản đồ </a></li>
@@ -220,7 +219,7 @@ const Menu = () => {
               </>
             )
           }
-        </div>  
+        </div>
       </Container>
     </>
   );
