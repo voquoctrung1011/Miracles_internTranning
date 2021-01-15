@@ -1,0 +1,43 @@
+.cart{
+    .cart-container{
+        .link{
+            padding-top:7rem;
+            width: 80%;
+            margin: 0 auto;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #e6e6e6;
+            justify-content: space-between;
+            @media (max-width: $tablet-breakpoint){    
+                width: 90%;
+            }
+            @media (max-width: $mobile-breakpoint){    
+                width: 90%;
+                font-size: 12px;
+            }
+            .NavLink{
+                color: #737373;
+                font-family: "Open Sans", sans-serif;
+                font-size: 12px;
+                width: 100%;
+                padding-right: 5px;
+            }
+            .NavLink:first-child::after{
+                content:">";
+                font-weight: bold;
+                padding-left: 5px;
+            }
+            .NavLink:last-child{
+                color: #789629;
+            }
+        }
+        .table-carts{
+            width: 80%;
+            margin:0 auto;
+            padding-top:2rem;
+            p{
+                margin-bottom: 3rem;
+                font-size: 28px;
+            }
+        }
+    }
+}

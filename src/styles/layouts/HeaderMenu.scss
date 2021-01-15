@@ -359,6 +359,10 @@ $mobile-breakpoint: 420px;
         .detail-cart{
             display:flex;
             padding-top: 15px;
+            img{
+                width: 30%;
+                height: 50%;
+            }
             .detail-cart-text{
                 padding-left:15px;
                 display: flex;

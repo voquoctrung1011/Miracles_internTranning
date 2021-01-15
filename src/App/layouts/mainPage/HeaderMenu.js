@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import AppContext from '../../../AppContext';
 import { Container } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+
+import ProductDemo from './productDemo';
 
 import Logo from "../../../assets/images/logo.png";
 import Search from "../../../assets/images/search.png";
 import Dropdown from "../../../assets/images/dropdown.png";
 import Cart from "../../../assets/images/cart.png";
-// import Up from "../../assets/images/up.png";
-// import Up2 from "../../assets/images/up2.png";
 import Product from "../../../assets/images/product.png";
 import Banner1 from "../../../assets/images/banner1.png";
 import Banner2 from "../../../assets/images/banner2.png";
@@ -16,23 +17,18 @@ import Exit from "../../../assets/images/exit.png";
 
 
 
+
 const HeaderMenu = () => {
 
+  const { cart, setCart} = useContext(AppContext)
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [units, setUnits] = useState();
 
 
-  const [cart, setCart] = useState([
-    {
-      id: "id",
-      name: "name",
-      description: "description",
-      price: "price",
-      units: 1
-    }
-  ])
+
+
 
   const showMenu = () => {
     if (!isOpenMenu)
@@ -55,9 +51,6 @@ const HeaderMenu = () => {
   //   }, []
   // });
 
-  const handleAddFunc = (value) => {
-    console.log(value)
-  }
 
   return (
     <>
@@ -85,11 +78,11 @@ const HeaderMenu = () => {
               </ul>
             </div>
             <div className="menu-icon">
-              <img
+              <NavLink exact to="/cart" > <img
                 onMouseOver={() => setIsOpenCart(true)}
                 onMouseOut={() => setIsOpenCart(false)}
                 src={Cart} alt="Cart"
-              />
+              /></NavLink>
               <img src={Search} alt="Search" />
               <img
                 className="img-menu-repos"
@@ -157,7 +150,7 @@ const HeaderMenu = () => {
 
           {/* dropdown CART */}
           {
-            isOpenCart && (
+            isOpenCart && cart.map((itemCart) =>  (
               <>
                 <div className="img-up2" />
                 <div
@@ -168,24 +161,24 @@ const HeaderMenu = () => {
                   <div className="carts">
 
                     <div className="detail-cart">
-                      <img src={Product} alt="Product" />
+                      <img src={itemCart.img}  />
                       <div className="detail-cart-text">
-                        <p>Áo sơ mi</p>
-                        <p>Nam</p>
+                        <p>{itemCart.name}</p>
+                        <p>{itemCart.title}</p>
                         <p className="cart-price">
-                          120.000
+                          {itemCart.price}
                         <span>đ</span>
                         </p>
                       </div>
                     </div>
 
                     <div className="detail-cart">
-                      <img src={Product} alt="Product" />
+                      <img src={itemCart.img}  />
                       <div className="detail-cart-text">
-                        <p>Áo sơ mi</p>
-                        <p>Nam</p>
+                        <p>{itemCart.name}</p>
+                        <p>{itemCart.title}</p>
                         <p className="cart-price">
-                          120.000
+                          {itemCart.price}
                         <span>đ</span>
                         </p>
                       </div>
@@ -206,15 +199,9 @@ const HeaderMenu = () => {
 
                   </div>
                 </div>
-                {/* <ul style={{ paddingTop: "10rem" }}>
-                  {cart.map(c => (
-                    <li>
-                      {c.a} | units {c.units}
-                    </li>
-                  ))}
-                </ul> */}
-                {/* <Test addProduct={handleAddFunc} /> */}
+        
               </>
+              )
             )
           }
           {

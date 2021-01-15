@@ -1,73 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Slider from "react-slick";
 import { Container, Row, Col } from 'reactstrap';
 import { Button, Radio, Carousel } from 'antd';
-import Product1 from "../../../assets/images/product_1.png";
-import Product2 from "../../../assets/images/product_2.png";
-import Product3 from "../../../assets/images/product_3.png";
-import Product4 from "../../../assets/images/product_4.png";
-import Product5 from "../../../assets/images/product_5.png";
-import Product6 from "../../../assets/images/product_6.png";
-import Product7 from "../../../assets/images/product_7.png";
-import Product9 from "../../../assets/images/product_9.png";
+
+import AppContext from '../../../AppContext';
+
 import Heart from "../../../assets/images/heart.png";
 import Reload from "../../../assets/images/reload.png";
 
 
+
 const Information = (props) => {
 
-
-    const [products, setProducts] = useState([
-        {
-            id: 1,
-            title: "Home",
-            name: "Mỹ phẩm châu âu",
-            price: "350.000",
-            img: "../../../assets/images/product_1.png"
-        },
-        {
-            id: 2,
-            title: "Company",
-            name: "Mỹ phẩm châu my",
-            price: "350.000",
-            img: '../../../assets/images/product_2.png'
-        },
-        {
-            id: 3,
-            title: "Company",
-            name: "Mỹ phẩm châu my",
-            price: "350.000",
-            img: '../../../assets/images/product_2.png'
-        },
-        {
-            id: 4,
-            title: "Company",
-            name: "Mỹ phẩm châu my",
-            price: "350.000",
-            img: '../../../assets/images/product_2.png'
-        },
-        {
-            id: 5,
-            title: "Company",
-            name: "Mỹ phẩm châu my",
-            price: "350.000",
-            img: '../../../assets/images/product_2.png'
-        },
-        {
-            id: 6,
-            title: "Company",
-            name: "Mỹ phẩm châu my",
-            price: "350.000",
-            img: '../../../assets/images/product_2.png'
-        },
-        {
-            id: 7,
-            title: "Company",
-            name: "Mỹ phẩm châu my",
-            price: "350.000",
-            img: '../../../assets/images/product_2.png'
-        },
-    ]);
+    const {products, setProducts, cart, setCart} = useContext(AppContext)
     const [isOpen, setIsOpen] = useState(false)
 
     const settings = {
@@ -98,7 +43,15 @@ const Information = (props) => {
 
 
     const addProduct = (item) => {
-        console.log(item);
+        setCart([
+            {
+                id: item.id,
+                title: item.title,
+                name: item.name,
+                price: item.price,
+                img: item.img
+            }
+        ]);
         
     }
 
@@ -136,7 +89,7 @@ const Information = (props) => {
                         <Slider  {...settings}>
                             {products.map((item)=> (
                                 <div key={item.id} className="product-container">
-                                    <img src={Product2}></img>
+                                    <img src={item.img}></img>
                                     <div className="table-price">
                                         <p className="product-title">{item.title}</p>
                                         <p className="product-name">{item.name}</p>
@@ -155,9 +108,10 @@ const Information = (props) => {
                                             <div className="button-price">
                                                 <Button
                                                     onClick={() => addProduct(item)}
-                                                    type="primary">
+                                                    type="primary"
+                                                >
                                                     Mua hàng
-                                            </Button>
+                                                </Button>
                                             </div>
                                             <div className="button-heart">
                                                 <Button type="primary" shape="circle">

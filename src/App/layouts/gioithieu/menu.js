@@ -66,11 +66,13 @@ const Menu = () => {
               </ul>
             </div>
             <div className="menu-iconn">
+            <NavLink exact to="/cart" >
               <img
                 onMouseOver={() => setIsOpenCart(true)}
                 onMouseOut={() => setIsOpenCart(false)}
                 src={Cart} alt="Cartt"
               />
+            </NavLink>
               <img src={Search} alt="Searchh" />
               <img
                 className="img-menu-reposs"
@@ -138,64 +140,58 @@ const Menu = () => {
 
           {/* dropdown CART */}
           {
-            isOpenCart && (
+            isOpenCart && cart.map((itemCart) => (
               <>
-                <div className="img-up22" />
+                <div className="img-up2" />
                 <div
-                  className="item-cartt"
+                  className="item-cart"
                   onMouseOver={() => setIsOpenCart(true)}
                   onMouseOut={() => setIsOpenCart(false)}
                 >
-                  <div className="cartss">
+                  <div className="carts">
 
-                    <div className="detail-cartt">
-                      <img src={Product} alt="Productt" />
-                      <div className="detail-cart-textt">
-                        <p>Áo sơ mi</p>
-                        <p>Nam</p>
-                        <p className="cart-pricee">
-                          120.000
-                        <span>đ</span>
+                    <div className="detail-cart">
+                      <img src={itemCart.img} />
+                      <div className="detail-cart-text">
+                        <p>{itemCart.name}</p>
+                        <p>{itemCart.title}</p>
+                        <p className="cart-price">
+                          {itemCart.price}
+                          <span>đ</span>
                         </p>
                       </div>
                     </div>
 
-                    <div className="detail-cartt">
-                      <img src={Product} alt="Productt" />
-                      <div className="detail-cart-textt">
-                        <p>Áo sơ mi</p>
-                        <p>Nam</p>
-                        <p className="cart-pricee">
-                          120.000
-                        <span>đ</span>
+                    <div className="detail-cart">
+                      <img src={itemCart.img} />
+                      <div className="detail-cart-text">
+                        <p>{itemCart.name}</p>
+                        <p>{itemCart.title}</p>
+                        <p className="cart-price">
+                          {itemCart.price}
+                          <span>đ</span>
                         </p>
                       </div>
                     </div>
 
-                    <div className="sum-pricee">
+                    <div className="sum-price">
                       <p>Tổng số: </p>
-                      <p className="cart-pricee">
+                      <p className="cart-price">
                         240.000
                         <span>đ</span>
                       </p>
                     </div>
                     <div>
-                      <button className="btn-cartt">
+                      <button className="btn-cart">
                         Giỏ hàng
                     </button>
                     </div>
 
                   </div>
                 </div>
-                <ul style={{ paddingTop: "10rem" }}>
-                  {cart.map(c => (
-                    <li>
-                      {c.a} | units {c.units}
-                    </li>
-                  ))}
-                </ul>
-                {/* <Test addProduct={handleAddFunc} /> */}
+
               </>
+            )
             )
           }
           {
