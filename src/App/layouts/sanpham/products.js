@@ -52,7 +52,6 @@ const Body = () => {
 
     return (
         <>
-            <Container>
                 <div className="productss">
                     <div className="productss-container">
                         <div className="link">
@@ -342,7 +341,6 @@ const Body = () => {
                     </div>
                 </div>
 
-            </Container>
         </>
     );
 }

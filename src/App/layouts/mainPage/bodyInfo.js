@@ -16,7 +16,6 @@ function Information() {
 
     return (
         <>
-            <Container>
                 <div className="bodyinfo">
                     <div className="bodyinfo-container">
                         <div className="bodyinfo-items">
@@ -54,7 +53,6 @@ function Information() {
                         </div>
                     </div>
                 </div>
-            </Container>
         </>
 
     );

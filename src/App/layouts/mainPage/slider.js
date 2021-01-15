@@ -19,7 +19,6 @@ const Slide = () => {
     return (
         <>
             <div className="slide-container">
-                <Container>
                     <Slider {...settings}>
                         <div className="bodyinfo-slides">
                             <div className="bodyinfo-person">
@@ -76,7 +75,6 @@ const Slide = () => {
                             </div>
                         </div>
                     </Slider>
-                </Container>
             </div>
         </>
     );

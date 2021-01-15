@@ -12,6 +12,18 @@ import Email from "../../../assets/images/email.png";
 
 const footer = () => {
 
+    const style = {
+        height: 40,
+        width: 100,
+        lineHeight: '40px',
+        borderRadius: 4,
+        backgroundColor: 'black',
+        color: '#fff',
+        textAlign: 'center',
+        fontSize: 19,
+        fontWeight: 'bold'
+      };
+
     const settings = {  
         infinite: true,
         speed: 500,
@@ -27,21 +39,11 @@ const footer = () => {
                     dots: false
                 }
             },
-            // {
-            //     breakpoint: 1000,
-            //     settings: {
-            //         slidesToShow: 3,
-            //         slidesToScroll: 1,
-            //         infinite: true,
-            //         dots: false
-            //     }
-            // }
         ]
     };
 
     return (
         <>
-            <Container>
                 <div className="footerr">
                     <div className="containerr">
                         <Row className="row-containerr">
@@ -122,7 +124,6 @@ const footer = () => {
                         <img className="imgFooterr" src={imgFooter} />
                     </div>
                 </div>
-            </Container>
         </>
 
     );

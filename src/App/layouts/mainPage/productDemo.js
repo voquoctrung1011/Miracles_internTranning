@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Slider from "react-slick";
 import { Container, Row, Col } from 'reactstrap';
-import { Button, Radio, Carousel } from 'antd';
+import { Button, notification } from 'antd';
 
 import AppContext from '../../../AppContext';
 
@@ -40,8 +40,6 @@ const Information = (props) => {
         console.log(a, b, c);
     }
 
-
-
     const addProduct = (item) => {
         setCart([
             {
@@ -52,12 +50,14 @@ const Information = (props) => {
                 img: item.img
             }
         ]);
-        
+        notification.success({
+            message: "Add product",
+            description: "Add" + " " + item.name + " "  + " success "
+        });
     }
 
     return (
         <>
-            <Container>
                 <div className="product-demo">
                     <div className="product-text">
                         <div className="product-text-sanpham">
@@ -130,9 +130,6 @@ const Information = (props) => {
                         </Slider>
                     </div>
                 </div>
-
-
-            </Container>
         </>
 
     );

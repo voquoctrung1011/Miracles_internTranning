@@ -1,5 +1,5 @@
-.cart{
-    .cart-container{
+.cartt{
+    .cartt-container{
         .link{
             padding-top:7rem;
             width: 80%;
@@ -31,7 +31,7 @@
             }
         }
         .table-carts{
-            width: 80%;
+            width: 95%;
             margin:0 auto;
             padding-top:2rem;
             p{
@@ -40,4 +40,12 @@
             }
         }
     }
+}
+td{
+    text-align: center;
+    vertical-align: middle !important;
+}
+th{
+    text-align: center;
+    vertical-align: middle !important;
 }

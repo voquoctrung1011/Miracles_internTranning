@@ -41,7 +41,6 @@ const RateUs = () => {
     // };
     return (
         <>
-            <Container>
 
                 <div className="rateus">
 
@@ -185,7 +184,6 @@ const RateUs = () => {
                         </Row>
                     </div>
                 </div>
-            </Container>
         </>
 
     );

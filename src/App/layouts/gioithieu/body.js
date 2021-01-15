@@ -11,7 +11,6 @@ const Body = () => {
 
   return (
     <>
-      <Container>
         <div className="about">
           <div className="link">
             <NavLink className="NavLink" exact to="/" >Home</NavLink>
@@ -54,7 +53,6 @@ const Body = () => {
             </div>
           </div>
         </div>
-      </Container>
     </>
   );
 }

@@ -42,11 +42,12 @@ const Menu = () => {
 
   return (
     <>
-      <Container>
         <div className="homess">
           <div className="menuu">
             <div className="menu-imgg">
-              <img src={Logo} alt="Logoo" />
+            <NavLink exact to="/" >
+              <img src={Logo} alt="Logo" />
+            </NavLink>
             </div>
             <div className="menu-textt">
               <ul className="listt">
@@ -93,7 +94,7 @@ const Menu = () => {
             isOpen && (
               <>
                 {/* <div className="hover-width"></div> */}
-                <div className="img-upp" />
+                {/* <div className="img-upp" /> */}
                 <div
                   onMouseOver={() => setIsOpen(true)}
                   onMouseOut={() => setIsOpen(false)}
@@ -142,7 +143,7 @@ const Menu = () => {
           {
             isOpenCart && cart.map((itemCart) => (
               <>
-                <div className="img-up2" />
+                {/* <div className="img-up2" /> */}
                 <div
                   className="item-cart"
                   onMouseOver={() => setIsOpenCart(true)}
@@ -216,7 +217,6 @@ const Menu = () => {
             )
           }
         </div>
-      </Container>
     </>
   );
 }

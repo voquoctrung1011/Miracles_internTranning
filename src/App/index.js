@@ -6,14 +6,13 @@ import Lienhe from './page/lienhe';
 import Sanpham from './page/sanpham';
 import Cartt from './page/cart';
 import 'antd/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {AppProvider} from '../AppContext';
 
 
 function HomePage() {
   return (
     <div className="home">
-      <AppProvider>
         <Router>
           <Switch>
             <Route exact path="/" render={() => <MainPage />} />
@@ -31,7 +30,6 @@ function HomePage() {
             <Route exact path="/cart" render={() => <Cartt />} />
           </Switch>
         </Router>
-      </AppProvider>
     </div>
   );
 }
