@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+
 import Plane from "../../../assets/images/plane.png";
 import Gift from "../../../assets/images/gift.png";
 import Star from "../../../assets/images/star.png";

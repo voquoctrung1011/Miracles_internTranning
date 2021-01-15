@@ -35,21 +35,7 @@ const HeaderMenu = () => {
       setIsOpenMenu(true);
     else
       setIsOpenMenu(false);
-  }
-
-  // useEffect(() => {
-  //   const handleAddFunc = (product) => {
-  //     console.log(product)
-  //     // setCart([
-  //     //   {
-  //     //     id: { product.id },
-  //     //     name: { product.name },
-  //     //     description: { product.description },
-  //     //     price: { product.price }
-  //     //   }
-  //     // ])
-  //   }, []
-  // });
+  } 
 
 
   return (

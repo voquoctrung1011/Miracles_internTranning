@@ -87,7 +87,6 @@ $mobile-breakpoint: 420px;
             margin-bottom: 10px;
             display: flex;  
             margin: 0 auto;
-            justify-content: space-between;
             @media (max-width: $tablet-breakpoint){    
                 width: 75%;
             }
@@ -96,6 +95,7 @@ $mobile-breakpoint: 420px;
                 width: 80%;
             }
             .imgs-container1-child{
+                width: 45%;
                 @media (max-width: $tablet-breakpoint){    
                     width: 50%;
                     display: flex;

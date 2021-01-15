@@ -1,16 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import AppContext from '../../../AppContext';
 
 import { Container, Table } from 'reactstrap';
-import { Tag, notification, Button, BackTop } from 'antd';
-import { BrowserRouter as NavLink } from "react-router-dom";
+import { Tag, notification, Button } from 'antd';
+
+
+import Plus from "../../../assets/images/add.png";
+import Minus from "../../../assets/images/minus.png"
 
 
 
 const Cart = (props) => {
 
     const { cart, setCart, products, setProducts } = useContext(AppContext);
-    const [alert, setArlert] = useState(false)
 
     const onDelete = (product) => {
 
@@ -27,6 +30,25 @@ const Cart = (props) => {
         console.log(newProduct)
     }
 
+    const onPlus = (item, index) =>{
+
+        products[index].count = products[index].count + 1;
+        products[index].sumPrice = products[index].price * products[index].count;
+
+        setProducts([...products])
+        console.log(products[index].count)
+    }
+
+    const onMinus = (item, index) => {
+        if(item.count <= 0)
+            return;
+        else
+            products[index].count = products[index].count - 1;
+            products[index].sumPrice = products[index].sumPrice - products[index].price;
+            setProducts([...products])
+            console.log(products[index].count)
+    }
+    
 
     return (
         <>
@@ -38,7 +60,7 @@ const Cart = (props) => {
                             <NavLink className="NavLink" exact to="/cart" >Cart</NavLink>
                         </div>
                         <div className="table-carts">
-                            <p>GIỎ HÀNG</p>
+                            <p className="giohang">GIỎ HÀNG</p>
                             <Table bordered >
                                 <thead style={{ backgroundColor: '#dee2e6' }}>
                                     <tr>
@@ -51,7 +73,7 @@ const Cart = (props) => {
                                     </tr>
                                 </thead>
                                 <tbody style={{ overflowY: 'auto', height: '300px' }}>
-                                    {products.map(itemProduct => (
+                                    {products.map((itemProduct, index) => (
                                         <>
                                             <tr key={itemProduct.id}>
                                                 <th
@@ -61,15 +83,32 @@ const Cart = (props) => {
                                                         src={itemProduct.img} />
                                                 </th>
                                                 <td>{itemProduct.name}</td>
-                                                <td><Tag color='purple'>{itemProduct.price}</Tag></td>
-                                                <td>1</td>
-                                                <td>{itemProduct.price}</td>
+                                                <td><Tag color='purple'>{itemProduct.price}$</Tag></td>
+                                                <td>
+                                                    <img
+                                                        style={{ width: '20px', height: '20px' }}
+                                                        src={Plus}
+                                                        onClick={()=> onPlus( itemProduct, index)}
+                                                    />
+                                                    <p
+                                                        style={{ paddingTop: '5px' }}
+                                                    >
+                                                        {itemProduct.count}
+                                                    </p>
+
+                                                    <img
+                                                        style={{ width: '20px', height: '20px', marginBottom: '5px' }}
+                                                        src={Minus}
+                                                        onClick={()=> onMinus(itemProduct, index)}
+                                                    />
+                                                </td>
+                                                <td>{itemProduct.sumPrice}$</td>
                                                 <td>
                                                     <Button
                                                         onClick={() => onDelete(itemProduct)}
                                                         danger
                                                     >Delete
-                                            </Button>
+                                                    </Button>
                                                 </td>
                                             </tr>
                                             <tr>

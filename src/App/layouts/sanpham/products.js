@@ -56,7 +56,7 @@ const Body = () => {
                     <div className="productss-container">
                         <div className="link">
                             <NavLink className="NavLink" exact to="/" >Home</NavLink>
-                            <NavLink className="NavLink" exact to="/lienhe" >Liên hệ</NavLink>
+                            <NavLink className="NavLink" exact to="/lienhe" >Sản phẩm</NavLink>
                         </div>
                         <div className="body-productss">
                             <div className="img-productss">
