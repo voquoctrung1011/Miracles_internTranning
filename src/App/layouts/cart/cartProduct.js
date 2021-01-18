@@ -8,6 +8,8 @@ import { Tag, notification, Button } from 'antd';
 
 import Plus from "../../../assets/images/add.png";
 import Minus from "../../../assets/images/minus.png"
+import Heart from "../../../assets/images/heart.png";
+import Reload from "../../../assets/images/reload.png";
 
 
 
@@ -30,7 +32,7 @@ const Cart = (props) => {
         console.log(newProduct)
     }
 
-    const onPlus = (item, index) =>{
+    const onPlus = (item, index) => {
 
         products[index].count = products[index].count + 1;
         products[index].sumPrice = products[index].price * products[index].count;
@@ -40,15 +42,15 @@ const Cart = (props) => {
     }
 
     const onMinus = (item, index) => {
-        if(item.count <= 0)
+        if (item.count <= 0)
             return;
         else
             products[index].count = products[index].count - 1;
-            products[index].sumPrice = products[index].sumPrice - products[index].price;
-            setProducts([...products])
-            console.log(products[index].count)
+        products[index].sumPrice = products[index].sumPrice - products[index].price;
+        setProducts([...products])
+        console.log(products[index].count)
     }
-    
+
 
     return (
         <>
@@ -88,7 +90,7 @@ const Cart = (props) => {
                                                     <img
                                                         style={{ width: '20px', height: '20px' }}
                                                         src={Plus}
-                                                        onClick={()=> onPlus( itemProduct, index)}
+                                                        onClick={() => onPlus(itemProduct, index)}
                                                     />
                                                     <p
                                                         style={{ paddingTop: '5px' }}
@@ -99,7 +101,7 @@ const Cart = (props) => {
                                                     <img
                                                         style={{ width: '20px', height: '20px', marginBottom: '5px' }}
                                                         src={Minus}
-                                                        onClick={()=> onMinus(itemProduct, index)}
+                                                        onClick={() => onMinus(itemProduct, index)}
                                                     />
                                                 </td>
                                                 <td>{itemProduct.sumPrice}$</td>
@@ -117,6 +119,24 @@ const Cart = (props) => {
                                     ))}
                                 </tbody>
                             </Table>
+                            <div className="button--">
+                                <div className="button-pricee">
+                                    <Button
+                                        type="primary">
+                                        Mua hàng
+                                            </Button>
+                                </div>
+                                <div className="button-heartt">
+                                    <Button type="primary" shape="circle">
+                                        <img src={Heart}></img>
+                                    </Button>
+                                </div>
+                                <div className="button-reloadd">
+                                    <Button type="primary" shape="circle">
+                                        <img src={Reload}></img>
+                                    </Button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

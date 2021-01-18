@@ -37,6 +37,74 @@
                 margin-bottom: 3rem;
                 font-size: 28px;
             }
+            .button--{
+                width: 50%;
+                margin: 0 auo;
+                display:flex;
+                padding-bottom:20px;
+                border-color:wheat;
+                justify-content: space-evenly;
+                padding-left: 60rem;
+                @media (max-width: $mobile-breakpoint){    
+                    
+                }
+                .button-pricee{
+                    Button{
+                        border:2px solid #A9A9A9;
+                        background-color: white;
+                        width: 120px;
+                        height: 50px;
+                        border-radius: 20px;
+                        color: #000;
+                        font-family: "Open Sans", sans-serif;
+                        font-size: 11px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        &:hover{
+                            background-color:#7ba12d;
+                            color: white;
+                        }
+                    }
+                }
+                .button-heartt{
+                    Button{
+                        border:2px solid #A9A9A9;
+                        background-color: white;
+                        color: #000;
+                        width: 45px;
+                        height: 50px;
+                        border-radius: 20px;
+                        &:hover{
+                            background-color:#7ba12d;
+                            color: white;
+                        }
+                        img{
+                            width:15px;  
+                            height:20px;
+                            padding-top:5px;  
+                        }
+                    }
+                }
+                .button-reloadd{
+                    Button{
+                        border:2px solid #A9A9A9;
+                        background-color: white;
+                        color: #000;
+                        width: 45px;
+                        height: 50px;
+                        border-radius: 20px;
+                        &:hover{
+                            background-color:#7ba12d;
+                            color: white;
+                        }
+                        img{
+                            width:15px;  
+                            height:20px;
+                            padding-top:5px;  
+                        }
+                    }
+                }
+            }
         }
     }
 }

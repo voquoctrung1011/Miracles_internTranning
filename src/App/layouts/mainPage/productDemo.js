@@ -96,10 +96,10 @@ const Information = (props) => {
                                         <div className="line"></div>
                                         <div className="text-price">
                                             <p className="price1">
-                                                {item.price}<span>đ</span>
+                                                {item.price}<span>$</span>
                                             </p>
                                             <p className="price2">
-                                                {item.price}<span>đ</span>
+                                                {item.price}<span>$</span>
                                             </p>
                                         </div>
                                         <div
