@@ -21,13 +21,21 @@ import Exit from "../../../assets/images/exit.png";
 
 const HeaderMenu = () => {
 
-  const { cart, setCart, products} = useContext(AppContext)
+  const { cart, setCart, products } = useContext(AppContext)
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
-  const [units, setUnits] = useState();
-  const quantity = 0;
+  const [visible, setVisible] = useState(false);
 
+  const styleCount = {
+    textAlign: "center",
+    width: "17px",
+    fontWeight: "bold",
+    fontSize: "15px",
+    backgroundColor: "black",
+    color:"white",
+    cursor:"pointer",
+  }
 
   const showMenu = () => {
     if (!isOpenMenu)
@@ -35,6 +43,33 @@ const HeaderMenu = () => {
     else
       setIsOpenMenu(false);
   }
+
+
+  const showDrawer = () => {
+    setVisible(true);
+  };
+
+  const onClose = () => {
+    setVisible(false);
+  };
+
+  const onPlus = (item, index) => {
+
+    cart[index].count = cart[index].count + 1;
+    cart[index].sumPrice = cart[index].price * cart[index].count;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setCart([...cart]);
+}
+
+const onMinus = (item, index) => {
+    if (item.count <= 0)
+        return;
+    else
+        cart[index].count = cart[index].count - 1;
+        cart[index].sumPrice = cart[index].sumPrice - cart[index].price;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        setCart([...cart])
+}
 
 
   return (
@@ -64,16 +99,15 @@ const HeaderMenu = () => {
             </ul>
           </div>
           <div className="menu-icon">
-            <NavLink exact to="/cart" > <img
-              onMouseOver={() => setIsOpenCart(true)}
-              onMouseOut={() => setIsOpenCart(false)}
+            <img
+              onClick={showDrawer}
               src={Cart} alt="Cart"
-            /></NavLink>
+            />
             {
               cart.map((cart, index) => {
                 return (
-                  <p> 
-                  ({cart.count})</p>
+                  <p>
+                    ({cart.count})</p>
                 )
               })
             }
@@ -144,49 +178,59 @@ const HeaderMenu = () => {
 
         {/* dropdown CART */}
         {/* { console.log('arr: ', cart)} */}
-        {
+        <Drawer
+          title="Cart Items"
+          placement="right"
+          closable={false}
+          onClose={onClose}
+          visible={visible}
+          width='410'
+        >
+          {
             cart.map((itemCart, index) => {
-            return (
-              <>
-                {/* <div className="img-up2" /> */}
-                <div
-                  className="item-cart"
-                  onMouseOver={() => setIsOpenCart(true)}
-                  onMouseOut={() => setIsOpenCart(false)}
-                >
-                  {/* {console.log('item: ', itemCart)} */}
-                  <div  className="carts">
-                    <div className="detail-cart">
-                      <img src={itemCart.img} />
-                      <div className="detail-cart-text">
-                        <p>{itemCart.name}</p>
-                        <p>{itemCart.title}</p>
+              return (
+                <>
+                  <div className="item-cart">
+                    <div className="carts">
+                      <div className="detail-cart">
+                        <img src={itemCart.img} />
+                        <div className="detail-cart-text">
+                          <p style={{fontSize:'25px', fontStyle:'italic',fontFamily: 'utm-viceroyJF'}}>{itemCart.name}</p>
+                          <p style={{paddingLeft:'15px', color:'#e7e7e7', fontWeight:'bold'}}>{itemCart.title}</p>
+                          <p className="cart-price">
+                            Price: {itemCart.price}
+                            <span>{itemCart.price === "" ? "" : "$"}</span>
+                          </p>
+                          <p style={{ width: '70%', display: 'flex', justifyContent: 'space-evenly' }}>
+                            Qty:
+                              <span onClick={() => onPlus(itemCart, index)} style={styleCount}>+</span>
+                                {itemCart.count}
+                              <span onClick={() => onMinus(itemCart, index)} style={styleCount}>-</span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="sum-price">
+                        <p style={{fontWeight:'bold', fontSize:'14px'}}>Total : </p>
                         <p className="cart-price">
-                          {itemCart.price}
+                          {itemCart.price * itemCart.count}
                           <span>{itemCart.price === "" ? "" : "$"}</span>
                         </p>
                       </div>
-                    </div>
 
-                    <div className="sum-price">
-                      <p>Tổng số: </p>
-                      <p className="cart-price">
-                        {itemCart.price * itemCart.count}
-                        <span>{itemCart.price === "" ? "" : "$"}</span>
-                      </p>
-                    </div>
-                    <div>
-                      <button className="btn-cart">
-                        Giỏ hàng
-                  </button>
                     </div>
                   </div>
-                </div>
 
-              </>
-            )
-          })
-        }
+                </>
+              )
+            })
+          }
+          <NavLink exact to="/cart" >
+            <button className="btn-cart">
+              Your Cart
+            </button>
+          </NavLink>
+        </Drawer>
         {
           isOpenMenu && (
             <>
