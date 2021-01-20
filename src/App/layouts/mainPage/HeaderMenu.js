@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../../AppContext';
 import { Container } from 'reactstrap';
+import { Drawer, Button } from 'antd';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import ProductDemo from './productDemo';
@@ -20,14 +21,12 @@ import Exit from "../../../assets/images/exit.png";
 
 const HeaderMenu = () => {
 
-  const { cart, setCart } = useContext(AppContext)
+  const { cart, setCart, products} = useContext(AppContext)
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
   const [units, setUnits] = useState();
-
-
-
+  const quantity = 0;
 
 
   const showMenu = () => {
@@ -35,7 +34,7 @@ const HeaderMenu = () => {
       setIsOpenMenu(true);
     else
       setIsOpenMenu(false);
-  } 
+  }
 
 
   return (
@@ -70,6 +69,14 @@ const HeaderMenu = () => {
               onMouseOut={() => setIsOpenCart(false)}
               src={Cart} alt="Cart"
             /></NavLink>
+            {
+              cart.map((cart, index) => {
+                return (
+                  <p> 
+                  ({cart.count})</p>
+                )
+              })
+            }
             <img src={Search} alt="Search" />
             <img
               className="img-menu-repos"
@@ -136,60 +143,49 @@ const HeaderMenu = () => {
         }
 
         {/* dropdown CART */}
+        {/* { console.log('arr: ', cart)} */}
         {
-          isOpenCart && cart.map((itemCart) => (
-            <>
-              <div className="img-up2" />
-              <div
-                className="item-cart"
-                onMouseOver={() => setIsOpenCart(true)}
-                onMouseOut={() => setIsOpenCart(false)}
-              >
-                <div className="carts">
+            cart.map((itemCart, index) => {
+            return (
+              <>
+                {/* <div className="img-up2" /> */}
+                <div
+                  className="item-cart"
+                  onMouseOver={() => setIsOpenCart(true)}
+                  onMouseOut={() => setIsOpenCart(false)}
+                >
+                  {/* {console.log('item: ', itemCart)} */}
+                  <div  className="carts">
+                    <div className="detail-cart">
+                      <img src={itemCart.img} />
+                      <div className="detail-cart-text">
+                        <p>{itemCart.name}</p>
+                        <p>{itemCart.title}</p>
+                        <p className="cart-price">
+                          {itemCart.price}
+                          <span>{itemCart.price === "" ? "" : "$"}</span>
+                        </p>
+                      </div>
+                    </div>
 
-                  <div className="detail-cart">
-                    <img src={itemCart.img} />
-                    <div className="detail-cart-text">
-                      <p>{itemCart.name}</p>
-                      <p>{itemCart.title}</p>
+                    <div className="sum-price">
+                      <p>Tổng số: </p>
                       <p className="cart-price">
-                        {itemCart.price}
-                        <span>đ</span>
+                        {itemCart.price * itemCart.count}
+                        <span>{itemCart.price === "" ? "" : "$"}</span>
                       </p>
                     </div>
-                  </div>
-
-                  <div className="detail-cart">
-                    <img src={itemCart.img} />
-                    <div className="detail-cart-text">
-                      <p>{itemCart.name}</p>
-                      <p>{itemCart.title}</p>
-                      <p className="cart-price">
-                        {itemCart.price}
-                        <span>đ</span>
-                      </p>
+                    <div>
+                      <button className="btn-cart">
+                        Giỏ hàng
+                  </button>
                     </div>
                   </div>
-
-                  <div className="sum-price">
-                    <p>Tổng số: </p>
-                    <p className="cart-price">
-                      240.000
-                        <span>đ</span>
-                    </p>
-                  </div>
-                  <div>
-                    <button className="btn-cart">
-                      Giỏ hàng
-                    </button>
-                  </div>
-
                 </div>
-              </div>
 
-            </>
-          )
-          )
+              </>
+            )
+          })
         }
         {
           isOpenMenu && (

@@ -16,39 +16,39 @@ import Reload from "../../../assets/images/reload.png";
 const Cart = (props) => {
 
     const { cart, setCart, products, setProducts } = useContext(AppContext);
+    
+    
+    const onDelete = (item) => {
 
-    const onDelete = (product) => {
-
-        const indexProduct = products.findIndex(p => p.id === product.id)
+        const indexProduct = cart.findIndex(p => p.id === item.id);
         if (indexProduct < 0) return;
 
-        const newProduct = [...products];
+        const newProduct = [...cart];
         newProduct.splice(indexProduct, 1);
-        setProducts(newProduct);
+        setCart(newProduct);
         notification.success({
             message: "Delete Table",
-            description: "Deleted" + " " + product.name + " " + " success "
+            description: "Deleted" + " " + item.name + " " + " success "
         });
-        console.log(newProduct)
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 
     const onPlus = (item, index) => {
 
-        products[index].count = products[index].count + 1;
-        products[index].sumPrice = products[index].price * products[index].count;
-
-        setProducts([...products])
-        console.log(products[index].count)
+        cart[index].count = cart[index].count + 1;
+        cart[index].sumPrice = cart[index].price * cart[index].count;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        setCart([...cart]);
     }
 
     const onMinus = (item, index) => {
         if (item.count <= 0)
             return;
         else
-            products[index].count = products[index].count - 1;
-        products[index].sumPrice = products[index].sumPrice - products[index].price;
-        setProducts([...products])
-        console.log(products[index].count)
+            cart[index].count = cart[index].count - 1;
+            cart[index].sumPrice = cart[index].sumPrice - cart[index].price;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            setCart([...cart])
     }
 
 
@@ -75,7 +75,7 @@ const Cart = (props) => {
                                     </tr>
                                 </thead>
                                 <tbody style={{ overflowY: 'auto', height: '300px' }}>
-                                    {products.map((itemProduct, index) => (
+                                    {cart.map((itemProduct, index) => (
                                         <>
                                             <tr key={itemProduct.id}>
                                                 <th
