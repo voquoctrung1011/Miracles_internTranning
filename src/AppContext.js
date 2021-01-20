@@ -10,83 +10,88 @@ const AppContext = React.createContext();
 
 const AppProvider = (props) => {
 
-    const [cart, setCart] = useState([
-        {
-          id: "",
-          title: "",
-          name: "",
-          price: "",
-          img: "",
-          count:""
-        //   units: 0
-        }
-      ])
+    let task = JSON.parse(localStorage.getItem('cart'));
+
+    const [cart, setCart] = useState(task);
+    //     {
+    //       id: "",
+    //       title: "",
+    //       name: "",
+    //       price: "",
+    //       img: "",
+    //       sumPrice:''
+    //     }
+    //   ])
+      
+      
+      
 
     const [products, setProducts] = useState([
         {
-            id: 1,
+            id: 0,
             title: "Home",
             name: "Mỹ phẩm châu âu",
-            price: "350",
+            price: 350,
             count:0,
-            sumPrice:'',
+            sumPrice:0,
             img: Product1
+        },
+        {
+            id: 1,
+            title: "Company",
+            name: "Mỹ phẩm châu myx",
+            price: 999,
+            count:0,
+            sumPrice:0,
+            img: Product2
         },
         {
             id: 2,
             title: "Company",
-            name: "Mỹ phẩm châu myx",
-            price: "999",
+            name: "Mỹ phẩm châu phi",
+            price: 25,
             count:0,
-            sumPrice:'',
-            img: Product2
+            sumPrice:0,
+            img: Product3
         },
         {
             id: 3,
             title: "Company",
-            name: "Mỹ phẩm châu phi",
-            price: "25",
+            name: "Mỹ phẩm châu doc",
+            price: 1011,
             count:0,
-            sumPrice:'',
-            img: Product3
+            sumPrice:0,
+            img: Product4
         },
         {
             id: 4,
             title: "Company",
-            name: "Mỹ phẩm châu doc",
-            price: "1011",
+            name: "Mỹ phẩm châu tinh tri",
+            price: 150,
             count:0,
-            sumPrice:'',
-            img: Product4
+            sumPrice:0,
+            img: Product5
         },
         {
             id: 5,
             title: "Company",
-            name: "Mỹ phẩm châu tinh tri",
-            price: "150",
+            name: "Mỹ phẩm châu dai duong",
+            price: 4000,
             count:0,
-            sumPrice:'',
-            img: Product5
+            sumPrice:0,
+            img: Product6
         },
         {
             id: 6,
             title: "Company",
-            name: "Mỹ phẩm châu dai duong",
-            price: "4000",
-            count:0,
-            sumPrice:'',
-            img: Product6
-        },
-        {
-            id: 7,
-            title: "Company",
             name: "Mỹ phẩm châu my la tinh ",
-            price: "3450",
+            price: 3450,
             count:0,
-            sumPrice:'',
+            sumPrice:0,
             img: Product9
         },  
     ]);
+
 
     return (
         <AppContext.Provider value = {{products, setProducts, cart, setCart}}>

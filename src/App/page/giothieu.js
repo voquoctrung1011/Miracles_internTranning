@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {AppProvider} from '../../AppContext'
+import { AppProvider } from '../../AppContext'
 
 import Menu from '../layouts/gioithieu/menu'
 import BodyAbout from '../layouts/gioithieu/body'
