@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, Input, Button, Checkbox, Descriptions } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";

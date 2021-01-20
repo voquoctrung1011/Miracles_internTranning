@@ -42,13 +42,16 @@ const Cart = (props) => {
     }
 
     const onMinus = (item, index) => {
-        if (item.count <= 0)
+        if (item.count <= 0){
             return;
-        else
+            onDelete(item);
+        }
+        else{
             cart[index].count = cart[index].count - 1;
             cart[index].sumPrice = cart[index].sumPrice - cart[index].price;
             localStorage.setItem('cart', JSON.stringify(cart));
             setCart([...cart])
+        }
     }
 
 
