@@ -90,7 +90,7 @@ $mobile-breakpoint: 420px;
                     
                 }
             }
-            img:nth-child(3){
+            .img-menu-repos{
                 display:none;
                 @media (max-width: $tablet-breakpoint){
                     display:block;
@@ -199,7 +199,7 @@ $mobile-breakpoint: 420px;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
-                   text-decoration: none;
+                text-decoration: none;
                 display: inline-block;
                 font-size: 16px;
                 margin-left: 5.5rem;
@@ -432,6 +432,57 @@ $mobile-breakpoint: 420px;
         transition: 0.5s;
     }
 }
+.search-form{
+    margin-left:8px;
+    input{
+        width: 17rem;
+        height: 2rem;
+        font-size: 13px;
+        padding-left: 4px;
+    }
+    .button-search{
+        width: fit-content;
+        margin-top: 8px;
+        .btn-search{
+            background-color: #D2691E;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            float:right;
+            font-weight: bold;
+            margin-right: 5px;
+            &:hover{
+                background-color: #ADD8E6;
+                color: white;
+                transition: 0.5s;
+            }
+        }
+        .btn-clear{
+            background-color: #8B0000;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            float:right;
+            font-weight: bold;
+            &:hover{
+                background-color: #ADD8E6;
+                color: white;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
 .menu-repos{
     display: none;
     @media (max-width: $tablet-breakpoint){

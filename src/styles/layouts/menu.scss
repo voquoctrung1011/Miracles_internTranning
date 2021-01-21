@@ -74,6 +74,7 @@ $mobile-breakpoint: 420px;
         .menu-iconn{
             padding-top:20px;
             width: 15%;   
+            display: flex;
             @media (max-width: $tablet-breakpoint){
                 float:right;
                 display: flex;

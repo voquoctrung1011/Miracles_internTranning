@@ -1,4 +1,4 @@
-import { Drawer,  notification } from 'antd';
+import { Drawer, notification } from 'antd';
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../../AppContext';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
@@ -14,7 +14,14 @@ import Exit from "../../../assets/images/exit.png";
 
 const Menu = () => {
 
-  const { cart, setCart, products } = useContext(AppContext)
+  const { cart,
+    setCart,
+    products,
+    setProducts,
+    onDelete,
+    onMinus,
+    onPlus
+  } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -46,42 +53,13 @@ const Menu = () => {
     setVisible(false);
   };
 
-  const onDelete = (item) => {
-
-    const indexProduct = cart.findIndex(p => p.id === item.id);
-    if (indexProduct < 0) return;
-
-    const newProduct = [...cart];
-    newProduct.splice(indexProduct, 1);
-    setCart(newProduct);
-    notification.success({
-      message: "Delete Table",
-      description: "Deleted" + " " + item.name + " " + " success "
-    });
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-
-  const onPlus = (item, index) => {
-
-    cart[index].count = cart[index].count + 1;
-    cart[index].sumPrice = cart[index].price * cart[index].count;
-    localStorage.setItem('cart', JSON.stringify(cart));
-    setCart([...cart]);
-  }
-
-  const onMinus = (item, index) => {
-    if (item.count <= 0) {
-      
-      onDelete(item);
-    }
-    else {
-      cart[index].count = cart[index].count - 1;
-      cart[index].sumPrice = cart[index].sumPrice - cart[index].price;
-      localStorage.setItem('cart', JSON.stringify(cart));
-      setCart([...cart])
-    }
-  }
-
+  let sum = 0;
+  cart.forEach(item => {
+    if (item.id != item.id)
+      sum = item.count + item.count;
+      sum++;
+  });
+  console.log(sum);
 
   return (
     <>
@@ -110,16 +88,25 @@ const Menu = () => {
             </ul>
           </div>
           <div className="menu-iconn">
-            <img
+            <img 
+              style={{cursor:'pointer'}}
               onClick={showDrawer}
               src={Cart} alt="Cart"
             />
-            <img src={Search} alt="Searchh" />
+            <p>({sum})</p>
+            <NavLink exact to="/cart" >
+              <img
+                src={Search} alt="Search"
+              // style={search == false ? { display: 'block' } : { display: 'none' }}
+              // onClick={() => setSearch(true)}
+              />
+            </NavLink>
             <img
               className="img-menu-reposs"
               src={MenuRepos}
               alt="MenuRepos"
               onClick={showMenu}
+              style={{display:'none'}}
             />
             <img
               className="img-exitt"
@@ -206,9 +193,9 @@ const Menu = () => {
                           </p>
                           <p style={{ width: '70%', display: 'flex', justifyContent: 'space-evenly' }}>
                             Qty:
-                              <span onClick={() => onPlus(itemCart, index)} style={styleCount}>+</span>
+                              <span onClick={() => onMinus(itemCart, index)} style={styleCount}>-</span>
                             {itemCart.count}
-                            <span onClick={() => onMinus(itemCart, index)} style={styleCount}>-</span>
+                            <span onClick={() => onPlus(itemCart, index)} style={styleCount}>+</span>
                           </p>
                         </div>
                       </div>

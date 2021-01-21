@@ -41,7 +41,7 @@ const Information = (props) => {
         const newCart = [...cart];
         const indexCart = newCart.findIndex(c => c.id === item.id);
 
-        if (indexCart < 1) {
+        if (indexCart < 0) {
             newCart.push({ ...item, count: 1});
         } else {
             const updatedItem = {
@@ -52,15 +52,13 @@ const Information = (props) => {
             newCart[indexCart] = updatedItem;
         }
         setCart([...newCart]);
-
-
         localStorage.setItem('cart', JSON.stringify(cart));
-        // notification.success({
-        //     message: "Add product",
-        //     description: "Add" + " " + item.name + " " + " success "
-        // });
+        notification.success({
+            message: "Add product",
+            description: "Add" + " " + item.name + " " + " success "
+        });
     }
-
+    
     return (
         <>
             <div className="product-demo">
@@ -105,9 +103,7 @@ const Information = (props) => {
                                             {item.price}<span>$</span>
                                         </p>
                                     </div>
-                                    <div
-                                        className="button-"
-                                    >
+                                    <div className="button-">
                                         <div className="button-price">
                                             <Button
                                                 onClick={() => addProduct(item, index)}

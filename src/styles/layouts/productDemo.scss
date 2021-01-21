@@ -226,12 +226,13 @@ $mobile-breakpoint: 420px;
             }           
         }
         .button-{
-            margin: 0 auo;
-            display:flex;
-            padding-top:30px;
+            margin: 0 auto;
+            display:none;
+            padding-top:20px;
             padding-bottom:20px;
             justify-content: space-evenly;
             border-color:wheat;
+            width: 50%;
             .button-price{
                 Button{
                     border:2px solid #A9A9A9;
@@ -289,11 +290,13 @@ $mobile-breakpoint: 420px;
         }   
 }
 }
-// .product-container:hover{
-//     .table-price:hover{ 
-
-//     }
-// }
+.product-container:hover{
+    .table-price:hover{ 
+        .button-{
+            display: flex;
+        }
+    }
+}
 }
 .slick-next{
     top:100px;

@@ -1,58 +1,58 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import AppContext from '../../../AppContext';
 
 import { Container, Table } from 'reactstrap';
-import { Tag, notification, Button } from 'antd';
+import { Tag, Button } from 'antd';
 
 
 import Plus from "../../../assets/images/add.png";
 import Minus from "../../../assets/images/minus.png"
 import Heart from "../../../assets/images/heart.png";
 import Reload from "../../../assets/images/reload.png";
+import Search from "../../../assets/images/search.png";
 
 
 
 const Cart = (props) => {
 
-    const { cart, setCart, products, setProducts } = useContext(AppContext);
-    
-    
-    const onDelete = (item) => {
+    const {
+        cart,
+        setCart,
+        products,
+        setProducts,
+        onDelete,
+        onMinus,
+        onPlus
+    } = useContext(AppContext);
+    const [inputValues, setInputValues] = useState({
+        strSearch: '',
+    })
+    let items = [];
 
-        const indexProduct = cart.findIndex(p => p.id === item.id);
-        if (indexProduct < 0) return;
 
-        const newProduct = [...cart];
-        newProduct.splice(indexProduct, 1);
-        setCart(newProduct);
-        notification.success({
-            message: "Delete Table",
-            description: "Deleted" + " " + item.name + " " + " success "
+    const handleSearch = () => {
+        cart = cart.filter((item) => {
+            return item.price.toLowerCase().indexOf(inputValues.strSearch.toLowerCase()) !== -1;
         });
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
 
-    const onPlus = (item, index) => {
-
-        cart[index].count = cart[index].count + 1;
-        cart[index].sumPrice = cart[index].price * cart[index].count;
-        localStorage.setItem('cart', JSON.stringify(cart));
-        setCart([...cart]);
-    }
-
-    const onMinus = (item, index) => {
-        if (item.count <= 0){
-            return;
-            onDelete(item);
-        }
-        else{
-            cart[index].count = cart[index].count - 1;
-            cart[index].sumPrice = cart[index].sumPrice - cart[index].price;
-            localStorage.setItem('cart', JSON.stringify(cart));
-            setCart([...cart])
+        if (inputValues.strSearch) {
+            cart = cart.filter((item) => {
+                return item.price.toLowerCase().indexOf(inputValues.strSearch.toLowerCase()) !== -1
+            });
         }
     }
+
+    const handleClear = () => {
+        setInputValues({ strSearch: '' });
+    }
+
+    const handleChange = (event) => {
+        setInputValues({
+            strSearch: event.target.value,
+        });
+    }
+
 
 
     return (
@@ -66,6 +66,13 @@ const Cart = (props) => {
                         </div>
                         <div className="table-carts">
                             <p className="giohang">GIỎ HÀNG</p>
+                            <div className="search-formm">
+                                <input type="text" name='strSearch' value={inputValues.strSearch} placeholder='Search products........' onChange={handleChange} />
+                                <div className="button-searchh">
+                                    <button onClick={handleClear} className="btn-clearr" type='button'>Clear</button>
+                                    <button onClick={() => handleSearch} className="btn-searchh" type='button'>Search</button>
+                                </div>
+                            </div>
                             <Table bordered >
                                 <thead style={{ backgroundColor: '#dee2e6' }}>
                                     <tr>

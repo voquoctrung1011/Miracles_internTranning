@@ -37,6 +37,62 @@
                 margin-bottom: 3rem;
                 font-size: 28px;
             }
+            .search-formm{
+                margin-left:8px;
+                display: flex;
+                justify-content: space-evenly;
+                width: 50%;
+                float:left;
+                input{
+                    width: 20rem;
+                    height: 2rem;
+                    font-size: 13px;
+                    padding-left: 4px;
+                    border: 2px solid grey;
+                    border-radius:5px;
+                }
+                .button-searchh{
+                    width: fit-content;
+             
+                    .btn-searchh{
+                        background-color: #D2691E;
+                        border: none;
+                        border-radius: 5px;
+                        color: white;
+                        padding: 8px 15px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 14px;
+                        float:right;
+                        font-weight: bold;
+                        margin-right: 5px;
+                        &:hover{
+                            background-color: #ADD8E6;
+                            color: white;
+                            transition: 0.5s;
+                        }
+                    }
+                    .btn-clearr{
+                        background-color: #8B0000;
+                        border: none;
+                        border-radius: 5px;
+                        color: white;
+                        padding: 8px 15px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 14px;
+                        float:right;
+                        font-weight: bold;
+                        &:hover{
+                            background-color: #ADD8E6;
+                            color: white;
+                            transition: 0.5s;
+                        }
+                    }
+                }
+            }
             .button--{
                 width: 50%;
                 margin: 0 auo;
