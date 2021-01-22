@@ -29,7 +29,8 @@ const AppProvider = (props) => {
         localStorage.setItem('cart', JSON.stringify(cart));
         notification.success({
             message: "Delete Table",
-            description: "Deleted" + " " + item.name + " " + " success "
+            description: "Deleted" + " " + item.name + " " + " success ",
+            duration: '0.5',
         });
     }
 
@@ -61,7 +62,7 @@ const AppProvider = (props) => {
             name: "Mỹ phẩm châu âu",
             price: 350,
             count:1,
-            sumPrice:0,
+            sumPrice:350,
             img: Product1
         },
         {
@@ -70,52 +71,52 @@ const AppProvider = (props) => {
             name: "Mỹ phẩm châu myx",
             price: 999,
             count:1,
-            sumPrice:0,
+            sumPrice:999,
             img: Product2
         },
         {
             id: 3,
-            title: "Company",
+            title: "SapotaCorp",
             name: "Mỹ phẩm châu phi",
             price: 25,
             count:1,
-            sumPrice:0,
+            sumPrice:25,
             img: Product3
         },
         {
             id: 4,
-            title: "Company",
+            title: "Micrales",
             name: "Mỹ phẩm châu doc",
             price: 1011,
             count:1,
-            sumPrice:0,
+            sumPrice:1011,
             img: Product4
         },
         {
             id: 5,
-            title: "Company",
+            title: "OrienSoftware",
             name: "Mỹ phẩm châu tinh tri",
             price: 150,
             count:1,
-            sumPrice:0,
+            sumPrice:150,
             img: Product5
         },
         {
             id: 6,
-            title: "Company",
+            title: "Datahouse",
             name: "Mỹ phẩm châu dai duong",
             price: 4000,
             count:1,
-            sumPrice:0,
+            sumPrice:4000,
             img: Product6
         },
         {
             id: 7,
-            title: "Company",
+            title: "FptSoftware",
             name: "My phẩm châu my la tinh ",
             price: 3450,
             count:1,
-            sumPrice:0,
+            sumPrice:3450,
             img: Product9
         },  
     ]);

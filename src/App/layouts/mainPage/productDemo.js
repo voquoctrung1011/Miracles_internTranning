@@ -55,7 +55,8 @@ const Information = (props) => {
         localStorage.setItem('cart', JSON.stringify(cart));
         notification.success({
             message: "Add product",
-            description: "Add" + " " + item.name + " " + " success "
+            description: "Add" + " " + item.name + " " + " success ",
+            duration: '0.5',
         });
     }
     

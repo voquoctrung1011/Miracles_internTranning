@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
 import AppContext from '../../../AppContext';
 
 import { Container, Table } from 'reactstrap';
-import { Tag, Button } from 'antd';
+import { Tag, Button, Popconfirm, Result, Alert, notification } from 'antd';
 
 
 import Plus from "../../../assets/images/add.png";
@@ -25,10 +25,8 @@ const Cart = (props) => {
         onMinus,
         onPlus
     } = useContext(AppContext);
-    const [inputValues, setInputValues] = useState({
-        strSearch: '',
-    })
-    let items = [];
+    const [showResult, setShowResult] = useState(false);
+    const [inputValues, setInputValues] = useState({ strSearch: '', })
 
 
     const handleSearch = () => {
@@ -53,6 +51,13 @@ const Cart = (props) => {
         });
     }
 
+    let sumCount = 0;
+    let totalPrice = 0;
+    cart.forEach((item, index) => {
+        sumCount += item.count;
+        totalPrice += item.sumPrice;
+    });
+
 
 
     return (
@@ -73,6 +78,26 @@ const Cart = (props) => {
                                     <button onClick={() => handleSearch} className="btn-searchh" type='button'>Search</button>
                                 </div>
                             </div>
+                            {showResult && (
+                                <>
+                                    <Result
+                                        style={{ zIndex: '2', position: 'fixed', backgroundColor: '#F0FFFF', width: '45rem', marginLeft: '200px', boxShadow: '20px 20px 50px grey' }}
+                                        status="success"
+                                        title={"You have bought " + sumCount + " products"}
+                                        subTitle={"The price you need to pay is " + totalPrice + "$"}
+                                        extra={[
+                                            <Button type="primary" key="console">
+                                                <NavLink exact to="/" style={{ textDecoration: 'none' }}>
+                                                    Buy More
+                                            </NavLink>
+                                            </Button>,
+                                            <Button key="buy" onClick={() => setShowResult(false)}>
+                                                Close
+                                        </Button>,
+                                        ]}
+                                    />
+                                </>
+                            )}
                             <Table bordered >
                                 <thead style={{ backgroundColor: '#dee2e6' }}>
                                     <tr>
@@ -81,7 +106,7 @@ const Cart = (props) => {
                                         <th>Price</th>
                                         <th>Number</th>
                                         <th>Sum Of Price</th>
-                                        <th>Delect</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody style={{ overflowY: 'auto', height: '300px' }}>
@@ -94,11 +119,11 @@ const Cart = (props) => {
                                                         style={{ width: '150px', height: '150px' }}
                                                         src={itemProduct.img} />
                                                 </th>
-                                                <td>{itemProduct.name}</td>
+                                                <td style={{ fontFamily: "utm-viceroyJF", fontSize:'25px' }}>{itemProduct.name}</td>
                                                 <td><Tag color='purple'>{itemProduct.price}$</Tag></td>
                                                 <td>
                                                     <img
-                                                        style={{ width: '20px', height: '20px' }}
+                                                        style={{ width: '20px', height: '20px', cursor: 'pointer' }}
                                                         src={Plus}
                                                         onClick={() => onPlus(itemProduct, index)}
                                                     />
@@ -109,18 +134,25 @@ const Cart = (props) => {
                                                     </p>
 
                                                     <img
-                                                        style={{ width: '20px', height: '20px', marginBottom: '5px' }}
+                                                        style={{ width: '20px', height: '20px', marginBottom: '5px', cursor: 'pointer' }}
                                                         src={Minus}
                                                         onClick={() => onMinus(itemProduct, index)}
                                                     />
                                                 </td>
-                                                <td>{itemProduct.sumPrice}$</td>
                                                 <td>
-                                                    <Button
-                                                        onClick={() => onDelete(itemProduct)}
-                                                        danger
-                                                    >Delete
+                                                    <p className="price-table">{itemProduct.sumPrice}
+                                                        <span>$</span>
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
+                                                        <Button
+                                                            className="buttonDelete"
+                                                            onClick={() => onDelete(itemProduct)}
+                                                            danger
+                                                        >Delete
                                                     </Button>
+                                                    </Popconfirm>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -129,12 +161,34 @@ const Cart = (props) => {
                                     ))}
                                 </tbody>
                             </Table>
+                            <Table bordered >
+                                <thead >
+                                    <tr style={{ fontFamily: "utm-viceroyJF", }}>
+                                        <th
+                                            style={{
+                                                textAlign: 'left',
+                                                fontSize: '30px',
+                                            }}>
+                                            Total
+                                        </th>
+                                        <th
+                                            style={{
+                                                width: '150px',
+                                                fontSize: '29px',
+                                                color:'#7ba12d',
+                                            }}>
+                                            <p>{totalPrice}<span>$</span></p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </Table>
                             <div className="button--">
                                 <div className="button-pricee">
                                     <Button
+                                        onClick={() => setShowResult(true)}
                                         type="primary">
                                         Mua hàng
-                                            </Button>
+                                    </Button>
                                 </div>
                                 <div className="button-heartt">
                                     <Button type="primary" shape="circle">

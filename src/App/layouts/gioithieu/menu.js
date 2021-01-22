@@ -1,6 +1,7 @@
-import { Drawer, notification } from 'antd';
+import { Drawer, notification, Popconfirm } from 'antd';
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../../AppContext';
+import { Container, Table } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import Logo from "../../../assets/images/logo.png";
@@ -53,13 +54,12 @@ const Menu = () => {
     setVisible(false);
   };
 
-  let sum = 0;
-  cart.forEach(item => {
-    if (item.id != item.id)
-      sum = item.count + item.count;
-      sum++;
+  let sumCount = 0;
+  let totalPrice = 0;
+  cart.forEach((item, index) => {
+    sumCount += item.count;
+    totalPrice += item.sumPrice;
   });
-  console.log(sum);
 
   return (
     <>
@@ -88,25 +88,24 @@ const Menu = () => {
             </ul>
           </div>
           <div className="menu-iconn">
-            <img 
-              style={{cursor:'pointer'}}
+            <img
+              className="cart-title"
+              style={{ cursor: 'pointer' }}
               onClick={showDrawer}
               src={Cart} alt="Cart"
             />
-            <p>({sum})</p>
+            <p>({sumCount})</p>
             <NavLink exact to="/cart" >
-              <img
-                src={Search} alt="Search"
-              // style={search == false ? { display: 'block' } : { display: 'none' }}
-              // onClick={() => setSearch(true)}
-              />
+              <Popconfirm title="Do you want to visit cartPage?？" okText="Yes" cancelText="No" >
+                <img src={Search} alt="Search" />
+              </Popconfirm>
             </NavLink>
             <img
               className="img-menu-reposs"
               src={MenuRepos}
               alt="MenuRepos"
               onClick={showMenu}
-              style={{display:'none'}}
+              style={{ display: 'none' }}
             />
             <img
               className="img-exitt"
@@ -201,7 +200,7 @@ const Menu = () => {
                       </div>
 
                       <div className="sum-price">
-                        <p style={{ fontWeight: 'bold', fontSize: '14px' }}>Total : </p>
+                        <p style={{ fontWeight: 'bold', fontSize: '14px' }}>Sum Of Price : </p>
                         <p className="cart-price">
                           {itemCart.price * itemCart.count}
                           <span>{itemCart.price === "" ? "" : "$"}</span>
@@ -215,6 +214,27 @@ const Menu = () => {
               )
             })
           }
+          <Table bordered style={{marginTop:'30px'}} >
+            <thead >
+              <tr style={{ fontFamily: "utm-viceroyJF" }}>
+                <th
+                  style={{
+                    textAlign: 'left',
+                    fontSize: '25px',
+                  }}>
+                  Total
+                </th>
+                <th
+                  style={{
+                    width: '150px',
+                    fontSize: '25px',
+                    color: '#7ba12d',
+                  }}>
+                  <p>{totalPrice}<span>$</span></p>
+                </th>
+              </tr>
+            </thead>
+          </Table>
           <NavLink exact to="/cart" >
             <button className="btn-cart">
               Your Cart

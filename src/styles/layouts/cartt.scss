@@ -1,4 +1,5 @@
 .cartt{
+    margin-bottom:80px;
     .cartt-container{
         .link{
             padding-top:7rem;
@@ -94,28 +95,28 @@
                 }
             }
             .button--{
-                width: 50%;
+                width: 20%;
                 margin: 0 auo;
                 display:flex;
                 padding-bottom:20px;
                 border-color:wheat;
                 justify-content: space-evenly;
-                padding-left: 60rem;
+                float: right;
                 @media (max-width: $mobile-breakpoint){    
                     
                 }
                 .button-pricee{
                     Button{
-                        border:2px solid #A9A9A9;
+                        border:2px solid #7ba12d;
                         background-color: white;
-                        width: 120px;
-                        height: 50px;
-                        border-radius: 20px;
+                        width: 100px;
+                        height: 45px;
+                        border-radius: 10px;
                         color: #000;
                         font-family: "Open Sans", sans-serif;
-                        font-size: 11px;
-                        font-weight: 600;
+                        font-size: 12px;
                         text-transform: uppercase;
+                        font-weight: bold;
                         &:hover{
                             background-color:#7ba12d;
                             color: white;
@@ -124,38 +125,44 @@
                 }
                 .button-heartt{
                     Button{
-                        border:2px solid #A9A9A9;
+                        border:2px solid #7ba12d;
                         background-color: white;
                         color: #000;
                         width: 45px;
-                        height: 50px;
-                        border-radius: 20px;
+                        height: 45px;
+                        border-radius: 10px;
                         &:hover{
                             background-color:#7ba12d;
                             color: white;
+                            img{
+                                filter: invert(100%) sepia(22%) saturate(6914%) hue-rotate(180deg) brightness(108%) contrast(109%);
+                            }
                         }
                         img{
-                            width:15px;  
-                            height:20px;
+                            width:18px;  
+                            height:25px;
                             padding-top:5px;  
                         }
                     }
                 }
                 .button-reloadd{
                     Button{
-                        border:2px solid #A9A9A9;
+                        border:2px solid #7ba12d;
                         background-color: white;
                         color: #000;
                         width: 45px;
-                        height: 50px;
-                        border-radius: 20px;
+                        height: 45px;
+                        border-radius: 10px;
                         &:hover{
                             background-color:#7ba12d;
                             color: white;
+                            img{
+                                filter: invert(100%) sepia(22%) saturate(6914%) hue-rotate(180deg) brightness(108%) contrast(109%);
+                            }
                         }
                         img{
-                            width:15px;  
-                            height:20px;
+                            width:18px;  
+                            height:25px;
                             padding-top:5px;  
                         }
                     }
@@ -171,4 +178,18 @@ td{
 th{
     text-align: center;
     vertical-align: middle !important;
+}
+.buttonDelete:hover{
+    background-color: red;
+    color: white;
+}
+.price-table{       
+    font-size: 24px;
+    font-family: 'utm-viceroyJF';
+    vertical-align: baseline;
+    font-weight: 630px;
+    span{
+        display:inline-block;
+        vertical-align: super;
+    }
 }

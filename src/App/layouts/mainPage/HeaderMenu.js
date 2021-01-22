@@ -1,6 +1,7 @@
 import React, { useState, useRef, useContext } from 'react';
 import AppContext from '../../../AppContext';
-import { Drawer, Button, notification } from 'antd';
+import { Drawer, Button, notification, Popconfirm } from 'antd';
+import { Container, Table } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 
@@ -75,13 +76,12 @@ const HeaderMenu = (props) => {
     });
   }
 
-  let sum = 0;
-  cart.forEach(item => {
-    if (item.id != item.id)
-      sum = item.count + item.count;
-      sum++;
-  });
-  console.log(sum);
+  let sumCount = 0;
+    let totalPrice =0;
+    cart.forEach((item, index) => {
+        sumCount += item.count ;   
+        totalPrice += item.sumPrice;    
+    });
 
 
   return (
@@ -112,17 +112,19 @@ const HeaderMenu = (props) => {
           </div>
           <div className="menu-icon">
             <img
-              style={{cursor:'pointer'}}
+              style={{ cursor: 'pointer' }}
               onClick={showDrawer}
               src={Cart} alt="Cart"
             />
-            <p>({sum})</p>
+            <p>({sumCount})</p>
             <NavLink exact to="/cart" >
-              <img
-                src={Search} alt="Search"
-              // style={search == false ? { display: 'block' } : { display: 'none' }}
-              // onClick={() => setSearch(true)}
-              />
+              <Popconfirm title="Do you want to visit cartPage?？" okText="Yes" cancelText="No">
+                <img
+                  src={Search} alt="Search" />
+              </Popconfirm>
+              {/* // style={search == false ? { display: 'block' } : { display: 'none' }}
+              // onClick={() => setSearch(true)} */}
+
             </NavLink>
             <img
               className="img-menu-repos"
@@ -237,6 +239,27 @@ const HeaderMenu = (props) => {
               )
             })
           }
+          <Table bordered style={{marginTop:'30px'}} >
+            <thead >
+              <tr style={{ fontFamily: "utm-viceroyJF" }}>
+                <th
+                  style={{
+                    textAlign: 'left',
+                    fontSize: '25px',
+                  }}>
+                  Total
+                </th>
+                <th
+                  style={{
+                    width: '150px',
+                    fontSize: '25px',
+                    color: '#7ba12d',
+                  }}>
+                  <p>{totalPrice}<span>$</span></p>
+                </th>
+              </tr>
+            </thead>
+          </Table>
           <NavLink exact to="/cart" >
             <button className="btn-cart">
               Your Cart
