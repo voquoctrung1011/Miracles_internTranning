@@ -79,9 +79,10 @@ $mobile-breakpoint: 420px;
     // Image
 
     .bodyinfo-imgs{
-        width: 100%;
-        margin-top:50px;  
-        margin-bottom:40px;  
+        width: 90%;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        margin: 0 auto; 
         .imgs-container1{
             width: 77%;
             margin-bottom: 10px;
@@ -95,7 +96,7 @@ $mobile-breakpoint: 420px;
                 width: 80%;
             }
             .imgs-container1-child{
-                width: 45%;
+                width: 50%;
                 @media (max-width: $tablet-breakpoint){    
                     width: 50%;
                     display: flex;

@@ -64,6 +64,8 @@ $mobile-breakpoint: 420px;
                     }
                     a:hover{
                         color:#4CAF50;
+                        transition: 0.5s;
+                        font-size: 18px;
                     }
   
                 }
@@ -86,11 +88,17 @@ $mobile-breakpoint: 420px;
                 width: 18px;
                 height: 18px;   
                 margin-left: 2rem;
+                &:hover{
+                    filter: invert(58%) sepia(81%) saturate(344%) hue-rotate(72deg) brightness(86%) contrast(88%);
+                    width: 22px;
+                    height: 20px;
+                    transition: 0.5s;
+                }
                 @media (max-width: $tablet-breakpoint){
                     
                 }
             }
-            img:nth-child(3){
+            .img-menu-repos{
                 display:none;
                 @media (max-width: $tablet-breakpoint){
                     display:block;
@@ -199,7 +207,7 @@ $mobile-breakpoint: 420px;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
-                   text-decoration: none;
+                text-decoration: none;
                 display: inline-block;
                 font-size: 16px;
                 margin-left: 5.5rem;
@@ -352,7 +360,7 @@ $mobile-breakpoint: 420px;
     animation:myfirst 1.5s;
     -webkit-animation:myfirst 1.5s;
     @media (max-width: $tablet-breakpoint){
-        width: 200px;
+        
     }
     .carts{
         width:95%;
@@ -432,6 +440,57 @@ $mobile-breakpoint: 420px;
         transition: 0.5s;
     }
 }
+.search-form{
+    margin-left:8px;
+    input{
+        width: 17rem;
+        height: 2rem;
+        font-size: 13px;
+        padding-left: 4px;
+    }
+    .button-search{
+        width: fit-content;
+        margin-top: 8px;
+        .btn-search{
+            background-color: #D2691E;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            float:right;
+            font-weight: bold;
+            margin-right: 5px;
+            &:hover{
+                background-color: #ADD8E6;
+                color: white;
+                transition: 0.5s;
+            }
+        }
+        .btn-clear{
+            background-color: #8B0000;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            float:right;
+            font-weight: bold;
+            &:hover{
+                background-color: #ADD8E6;
+                color: white;
+                transition: 0.5s;
+            }
+        }
+    }
+}
+
 .menu-repos{
     display: none;
     @media (max-width: $tablet-breakpoint){

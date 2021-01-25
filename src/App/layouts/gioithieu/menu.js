@@ -1,6 +1,7 @@
-import { Drawer,  notification } from 'antd';
+import { Drawer, notification, Popconfirm } from 'antd';
 import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../../AppContext';
+import { Container, Table } from 'reactstrap';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import Logo from "../../../assets/images/logo.png";
@@ -14,7 +15,14 @@ import Exit from "../../../assets/images/exit.png";
 
 const Menu = () => {
 
-  const { cart, setCart, products } = useContext(AppContext)
+  const { cart,
+    setCart,
+    products,
+    setProducts,
+    onDelete,
+    onMinus,
+    onPlus
+  } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false)
@@ -46,42 +54,12 @@ const Menu = () => {
     setVisible(false);
   };
 
-  const onDelete = (item) => {
-
-    const indexProduct = cart.findIndex(p => p.id === item.id);
-    if (indexProduct < 0) return;
-
-    const newProduct = [...cart];
-    newProduct.splice(indexProduct, 1);
-    setCart(newProduct);
-    notification.success({
-      message: "Delete Table",
-      description: "Deleted" + " " + item.name + " " + " success "
-    });
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-
-  const onPlus = (item, index) => {
-
-    cart[index].count = cart[index].count + 1;
-    cart[index].sumPrice = cart[index].price * cart[index].count;
-    localStorage.setItem('cart', JSON.stringify(cart));
-    setCart([...cart]);
-  }
-
-  const onMinus = (item, index) => {
-    if (item.count <= 0) {
-      
-      onDelete(item);
-    }
-    else {
-      cart[index].count = cart[index].count - 1;
-      cart[index].sumPrice = cart[index].sumPrice - cart[index].price;
-      localStorage.setItem('cart', JSON.stringify(cart));
-      setCart([...cart])
-    }
-  }
-
+  let sumCount = 0;
+  let totalPrice = 0;
+  cart.forEach((item, index) => {
+    sumCount += item.count;
+    totalPrice += item.sumPrice;
+  });
 
   return (
     <>
@@ -111,15 +89,23 @@ const Menu = () => {
           </div>
           <div className="menu-iconn">
             <img
+              className="cart-title"
+              style={{ cursor: 'pointer' }}
               onClick={showDrawer}
               src={Cart} alt="Cart"
             />
-            <img src={Search} alt="Searchh" />
+            <p>({sumCount})</p>
+            <NavLink exact to="/cart" >
+              <Popconfirm title="Do you want to visit cartPage?？" okText="Yes" cancelText="No" >
+                <img src={Search} alt="Search" />
+              </Popconfirm>
+            </NavLink>
             <img
               className="img-menu-reposs"
               src={MenuRepos}
               alt="MenuRepos"
               onClick={showMenu}
+              style={{ display: 'none' }}
             />
             <img
               className="img-exitt"
@@ -197,24 +183,24 @@ const Menu = () => {
                     <div className="carts">
                       <div className="detail-cart">
                         <img src={itemCart.img} />
-                        <div className="detail-cart-text">
+                        <div className="detail-cart-text" style={{width:'100%'}}>
                           <p style={{ fontSize: '25px', fontStyle: 'italic', fontFamily: 'utm-viceroyJF' }}>{itemCart.name}</p>
                           <p style={{ paddingLeft: '15px', color: '#e7e7e7', fontWeight: 'bold' }}>{itemCart.title}</p>
                           <p className="cart-price">
                             Price: {itemCart.price}
                             <span>{itemCart.price === "" ? "" : "$"}</span>
                           </p>
-                          <p style={{ width: '70%', display: 'flex', justifyContent: 'space-evenly' }}>
+                          <p style={{ width:'50%', display: 'flex', justifyContent: 'space-evenly' }}>
                             Qty:
-                              <span onClick={() => onPlus(itemCart, index)} style={styleCount}>+</span>
+                              <span onClick={() => onMinus(itemCart, index)} style={styleCount}>-</span>
                             {itemCart.count}
-                            <span onClick={() => onMinus(itemCart, index)} style={styleCount}>-</span>
+                            <span onClick={() => onPlus(itemCart, index)} style={styleCount}>+</span>
                           </p>
                         </div>
                       </div>
 
                       <div className="sum-price">
-                        <p style={{ fontWeight: 'bold', fontSize: '14px' }}>Total : </p>
+                        <p style={{ fontWeight: 'bold', fontSize: '14px' }}>Sum Of Price : </p>
                         <p className="cart-price">
                           {itemCart.price * itemCart.count}
                           <span>{itemCart.price === "" ? "" : "$"}</span>
@@ -228,6 +214,27 @@ const Menu = () => {
               )
             })
           }
+          <Table bordered style={{marginTop:'30px'}} >
+            <thead >
+              <tr style={{ fontFamily: "utm-viceroyJF" }}>
+                <th
+                  style={{
+                    textAlign: 'left',
+                    fontSize: '25px',
+                  }}>
+                  Total
+                </th>
+                <th
+                  style={{
+                    width: '150px',
+                    fontSize: '25px',
+                    color: '#7ba12d',
+                  }}>
+                  <p>{totalPrice}<span>$</span></p>
+                </th>
+              </tr>
+            </thead>
+          </Table>
           <NavLink exact to="/cart" >
             <button className="btn-cart">
               Your Cart

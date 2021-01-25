@@ -63,7 +63,7 @@ const Body = () => {
                                 <div className="slider-productss">
                                     <Slider  {...settings}>
                                         {
-                                            Products.map(itemProducts => (
+                                            Products.map((itemProducts, index) => (
                                                 <div>
                                                     <img
                                                         style={{ width: '80%', height: '60%' }}

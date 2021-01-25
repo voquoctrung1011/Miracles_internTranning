@@ -164,14 +164,19 @@ $mobile-breakpoint: 420px;
         }
     }
     .table-price{
-        background-color: #fff;
+        width: 80%;
+        background-color:#fff;
         text-align: center;
-        line-height: 1;
         border-top: 1px dashed #e6e6e6;
         padding-top:20px; ;
-        height:10rem;
+        height:11rem;
+        margin:0 auto;  
+        @media (max-width: $tablet-breakpoint){    
+            width: 90%;
+        }
         @media (max-width: $mobile-breakpoint){    
-            height:auto;
+            width: 65%;
+
         }
         .product-title{
             margin-bottom: 10px;
@@ -183,8 +188,11 @@ $mobile-breakpoint: 420px;
         }
         .product-name{
             color: #000;
-            font-family: "Open Sans", sans-serif;
-            font-size: 16px;
+            font-family: 'utm-viceroyJF';
+            font-size: 27px;
+            @media (max-width: $tablet-breakpoint){    
+                font-size: 20px;
+            }
         }
         .line{
             border: 1px solid #c2c2c2;
@@ -193,22 +201,28 @@ $mobile-breakpoint: 420px;
         }
         .text-price{
             display:flex;
-            width: 60%;
+            width: 50%;
             margin: 0 auto;
             justify-content: space-evenly;
             text-align: center;
+            padding-right: 20px;
             @media (max-width: $tablet-breakpoint){    
                 width: 90%;
             }
             @media (max-width: $mobile-breakpoint){    
-                width: 40%;
+                width: 50%;
+                font-size: 12px;
             }
             .price1{
                 color: #789629;          
-                font-size: 14px;
+                font-size: 15px;
                 font-family: "utm-androgyne", sans-serif;
                 vertical-align: baseline;
                 padding-left: 30px;
+                @media (max-width: $mobile-breakpoint){    
+                    width: 100%;
+                    font-size: 12px;
+                }
                 span{
                     display:inline-block;
                     vertical-align: super;
@@ -216,9 +230,13 @@ $mobile-breakpoint: 420px;
             }
             .price2{
                 color: #b4b4b4;          
-                font-size: 14px;
+                font-size: 15px;
                 font-family: "utm-androgyne", sans-serif;
                 vertical-align: baseline;
+                @media (max-width: $mobile-breakpoint){    
+                    width: 100%;
+                    font-size: 12px;
+                }
                 span{
                     display:inline-block;
                     vertical-align: super;
@@ -226,13 +244,23 @@ $mobile-breakpoint: 420px;
             }           
         }
         .button-{
-            margin: 0 auo;
-            display:flex;
-            padding-top:30px;
+            margin: 0 auto;
+            display:none;
+            padding-top:20px;
             padding-bottom:20px;
             justify-content: space-evenly;
             border-color:wheat;
+            width: 50%;
+            @media (max-width: $mobile-breakpoint){    
+                width: 100%;
+                margin:0;
+                display: flex;
+            }
             .button-price{
+                @media (max-width: $mobile-breakpoint){    
+                    width: 40%;
+                    
+                }
                 Button{
                     border:2px solid #A9A9A9;
                     background-color: white;
@@ -248,9 +276,16 @@ $mobile-breakpoint: 420px;
                         background-color:#7ba12d;
                         color: white;
                     }
+                    @media (max-width: $mobile-breakpoint){    
+                        width: 100px;
+                        font-size: 11px;
+                    }
                 }
             }
             .button-heart{
+                @media (max-width: $mobile-breakpoint){    
+                    width: 20%;
+                }
                 Button{
                     border:2px solid #A9A9A9;
                     background-color: white;
@@ -261,14 +296,24 @@ $mobile-breakpoint: 420px;
                         background-color:#7ba12d;
                         color: white;
                     }
+                    @media (max-width: $mobile-breakpoint){    
+                        width: 10px;
+                        font-size: 11px;
+                    }
                     img{
                         width:15px;  
                         height:20px;
                         padding-top:5px;  
+                        @media (max-width: $mobile-breakpoint){    
+                            width: 10px;
+                        }
                     }
                 }
             }
             .button-reload{
+                @media (max-width: $mobile-breakpoint){    
+                    width: 20%;
+                }
                 Button{
                     border:2px solid #A9A9A9;
                     background-color: white;
@@ -279,21 +324,30 @@ $mobile-breakpoint: 420px;
                         background-color:#7ba12d;
                         color: white;
                     }
+                    @media (max-width: $mobile-breakpoint){    
+                        width: 10px;
+                        font-size: 11px;
+                    }
                     img{
                         width:15px;  
                         height:20px;
                         padding-top:5px;  
+                        @media (max-width: $mobile-breakpoint){    
+                            width: 10px;
+                        }
                     }
                 }
             }
         }   
 }
 }
-// .product-container:hover{
-//     .table-price:hover{ 
-
-//     }
-// }
+.product-container:hover{
+    .table-price:hover{ 
+        .button-{
+            display: flex;
+        }
+    }
+}
 }
 .slick-next{
     top:100px;
