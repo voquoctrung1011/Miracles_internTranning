@@ -208,14 +208,14 @@ const HeaderMenu = (props) => {
                     <div className="carts">
                       <div className="detail-cart">
                         <img src={itemCart.img} />
-                        <div className="detail-cart-text">
+                        <div className="detail-cart-text" style={{width:'100%'}}>
                           <p style={{ fontSize: '25px', fontStyle: 'italic', fontFamily: 'utm-viceroyJF' }}>{itemCart.name}</p>
                           <p style={{ paddingLeft: '15px', color: '#e7e7e7', fontWeight: 'bold' }}>{itemCart.title}</p>
                           <p className="cart-price">
                             Price: {itemCart.price}
                             <span>{itemCart.price === "" ? "" : "$"}</span>
                           </p>
-                          <p style={{ width: '70%', display: 'flex', justifyContent: 'space-evenly' }}>
+                          <p style={{ width: '50%', display: 'flex', justifyContent: 'space-evenly' }}>
                             Qty:
                               <span onClick={() => onMinus(itemCart, index)} style={styleCount}>-</span>
                             {itemCart.count}

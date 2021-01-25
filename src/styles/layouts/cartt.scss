@@ -51,6 +51,10 @@
                     border-radius:5px;
                 }
                 .button-searchh{
+                    @media (max-width: $tablet-breakpoint){    
+                        display:flex;
+                        width: 0;
+                    }
                     .btn-searchh{
                         background-color: #D2691E;
                         border: none;

@@ -3,15 +3,13 @@ import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
 import AppContext from '../../../AppContext';
 
 import { Container, Table } from 'reactstrap';
-import { Tag, Button, Popconfirm, Result, Menu, Dropdown } from 'antd';
+import { Tag, Button, Popconfirm, Result, Menu, Dropdown, Spin } from 'antd';
 
 
 import Plus from "../../../assets/images/add.png";
 import Minus from "../../../assets/images/minus.png"
 import Heart from "../../../assets/images/heart.png";
 import Reload from "../../../assets/images/reload.png";
-
-
 
 
 
@@ -28,25 +26,18 @@ const Cart = (props) => {
     } = useContext(AppContext);
     const [showResult, setShowResult] = useState(false);
     const [inputValues, setInputValues] = useState({ strSearch: '', sortType: '', sortOrder: '' })
+    const [loading, setLoading] = useState(false);
 
 
-    const menu = (
-        <Menu>
-          <Menu.Item key="0">
-            <a onClick={() =>onSort('price','asc')}>Ascending</a>
-          </Menu.Item>
-          <Menu.Item key="1">
-            <a onClick={()=>onSort('price','desc')}>Descending</a>
-          </Menu.Item>
-        </Menu>
-    );
-
-
+    //Button Clear
     const handleClear = () => {
+
         setInputValues({ strSearch: '' });
     }
 
+    //Search Name products
     const onSearch = (strSearch) => {
+
         let sourceArray = cart;
         let newArray = [];
         if (strSearch.length <= 0) {
@@ -55,8 +46,8 @@ const Cart = (props) => {
             strSearch.toLowerCase();
             for (let item of sourceArray) {
                 let sumPrice = item.sumPrice.toString();
-                if (item.name.toLowerCase().indexOf(strSearch) > -1 ) {
-                    console.log(typeof(sumPrice));
+                if (item.name.toLowerCase().indexOf(strSearch) > -1) {
+                    console.log(typeof (sumPrice));
                     newArray.push(item);
                 }
             }
@@ -67,32 +58,35 @@ const Cart = (props) => {
         });
     }
 
+    //Sort price products
     const onSort = (sortType, sortOrder) => {
+
         let items = cart;
-        if(sortOrder !== '' && sortType !== '') {
+        if (sortOrder !== '' && sortType !== '') {
             let value = `${sortType}-${sortOrder}`;
-            switch(value) {
+            switch (value) {
                 default:
-                break;
-            case "price-asc":
-                items.sort(compareValues('price','asc'));
-                break;
-            case "price-desc":
-                items.sort(compareValues('price','desc'));
-                break;
+                    break;
+                case "price-asc":
+                    items.sort(compareValues('price', 'asc'));
+                    break;
+                case "price-desc":
+                    items.sort(compareValues('price', 'desc'));
+                    break;
             }
             setCart([...items])
             setInputValues({
-                sortType : sortType,
+                sortType: sortType,
                 sortOrder: sortOrder
-          });
+            });
         }
     }
-    
-    const compareValues =(key, order='asc') =>{
-        return function(a, b) {
-            if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-                return 0;   
+
+    const compareValues = (key, order = 'asc') => {
+
+        return function (a, b) {
+            if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+                return 0;
             }
             const priceA = a[key];
             const priceB = b[key];
@@ -115,9 +109,33 @@ const Cart = (props) => {
         totalPrice += item.sumPrice;
     });
 
+    //Set lai name khi sort
+    const value =[-1, 0 ,1];
+    const sortName = (confirm) => {
+        switch (confirm) {
+            case -1:
+                return 'Ascending';
+            case 0:
+                return 'Sort ';
+            case 1:
+                return 'Descending';
+        }
+    };
+    const menu = (
+        <Menu>
+            <Menu.Item key="0">
+                <a onClick={() => onSort('price', 'asc')}>{sortName(-1)}</a>
+            </Menu.Item>
+            <Menu.Item key="1">
+                <a onClick={() => onSort('price', 'desc')}>{sortName(1)}</a>
+            </Menu.Item>
+        </Menu>
+    );
 
-
-
+    const reloadPage = () =>{
+        window.location.reload();
+        setLoading(true)
+    }
 
     return (
         <>
@@ -130,6 +148,7 @@ const Cart = (props) => {
                         </div>
                         <div className="table-carts">
                             <p className="giohang"> Your Cart</p>
+                            {loading && (<Spin tip="is loading" style={{position:'fixed',textAlign:'center',left:'50rem'}} size="large" />)}
                             <div className="search-formm">
                                 <input
                                     type="text"
@@ -140,7 +159,7 @@ const Cart = (props) => {
                                 />
                                 <div className="button-searchh">
                                     <Dropdown overlay={menu} trigger={['click']}>
-                                        <button  className="btn-searchh" type='button'>Sort</button>
+                                        <button className="btn-searchh" type='button'>{sortName(0)}</button>
                                     </Dropdown>
                                     <button onClick={handleClear} className="btn-clearr" type='button'>Clear</button>
                                 </div>
@@ -148,7 +167,7 @@ const Cart = (props) => {
                             {showResult && (
                                 <>
                                     <Result
-                                        style =
+                                        style=
                                         {{
                                             zIndex: '2',
                                             position: 'fixed',
@@ -271,8 +290,13 @@ const Cart = (props) => {
                                     </Button>
                                 </div>
                                 <div className="button-reloadd">
-                                    <Button type="primary" shape="circle">
+                                    <Button 
+                                    type="primary" 
+                                    shape="circle"
+                                    onClick={reloadPage}
+                                    >
                                         <img src={Reload}></img>
+                                        
                                     </Button>
                                 </div>
                             </div>
