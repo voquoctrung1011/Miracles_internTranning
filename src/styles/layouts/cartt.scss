@@ -39,22 +39,18 @@
                 font-size: 28px;
             }
             .search-formm{
-                margin-left:8px;
                 display: flex;
-                justify-content: space-evenly;
                 width: 50%;
                 float:left;
                 input{
                     width: 20rem;
                     height: 2rem;
                     font-size: 13px;
-                    padding-left: 4px;
+                    margin-right: 10px;
                     border: 2px solid grey;
                     border-radius:5px;
                 }
                 .button-searchh{
-                    width: fit-content;
-             
                     .btn-searchh{
                         background-color: #D2691E;
                         border: none;
@@ -84,7 +80,6 @@
                         text-decoration: none;
                         display: inline-block;
                         font-size: 14px;
-                        float:right;
                         font-weight: bold;
                         &:hover{
                             background-color: #ADD8E6;
@@ -192,4 +187,7 @@ th{
         display:inline-block;
         vertical-align: super;
     }
+}
+.ant-result-subtitle{
+    font-size: 19px;
 }

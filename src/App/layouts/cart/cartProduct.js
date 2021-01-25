@@ -1,16 +1,17 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 import AppContext from '../../../AppContext';
 
 import { Container, Table } from 'reactstrap';
-import { Tag, Button, Popconfirm, Result, Alert, notification } from 'antd';
+import { Tag, Button, Popconfirm, Result, Menu, Dropdown } from 'antd';
 
 
 import Plus from "../../../assets/images/add.png";
 import Minus from "../../../assets/images/minus.png"
 import Heart from "../../../assets/images/heart.png";
 import Reload from "../../../assets/images/reload.png";
-import Search from "../../../assets/images/search.png";
+
+
 
 
 
@@ -26,29 +27,85 @@ const Cart = (props) => {
         onPlus
     } = useContext(AppContext);
     const [showResult, setShowResult] = useState(false);
-    const [inputValues, setInputValues] = useState({ strSearch: '', })
+    const [inputValues, setInputValues] = useState({ strSearch: '', sortType: '', sortOrder: '' })
 
 
-    const handleSearch = () => {
-        cart = cart.filter((item) => {
-            return item.price.toLowerCase().indexOf(inputValues.strSearch.toLowerCase()) !== -1;
-        });
+    const menu = (
+        <Menu>
+          <Menu.Item key="0">
+            <a onClick={() =>onSort('price','asc')}>Ascending</a>
+          </Menu.Item>
+          <Menu.Item key="1">
+            <a onClick={()=>onSort('price','desc')}>Descending</a>
+          </Menu.Item>
+        </Menu>
+    );
 
-        if (inputValues.strSearch) {
-            cart = cart.filter((item) => {
-                return item.price.toLowerCase().indexOf(inputValues.strSearch.toLowerCase()) !== -1
-            });
-        }
-    }
 
     const handleClear = () => {
         setInputValues({ strSearch: '' });
     }
 
-    const handleChange = (event) => {
+    const onSearch = (strSearch) => {
+        let sourceArray = cart;
+        let newArray = [];
+        if (strSearch.length <= 0) {
+            newArray = sourceArray;
+        } else {
+            strSearch.toLowerCase();
+            for (let item of sourceArray) {
+                let sumPrice = item.sumPrice.toString();
+                if (item.name.toLowerCase().indexOf(strSearch) > -1 ) {
+                    console.log(typeof(sumPrice));
+                    newArray.push(item);
+                }
+            }
+        }
+        setCart([...newArray])
         setInputValues({
-            strSearch: event.target.value,
+            strSearch: strSearch
         });
+    }
+
+    const onSort = (sortType, sortOrder) => {
+        let items = cart;
+        if(sortOrder !== '' && sortType !== '') {
+            let value = `${sortType}-${sortOrder}`;
+            switch(value) {
+                default:
+                break;
+            case "price-asc":
+                items.sort(compareValues('price','asc'));
+                break;
+            case "price-desc":
+                items.sort(compareValues('price','desc'));
+                break;
+            }
+            setCart([...items])
+            setInputValues({
+                sortType : sortType,
+                sortOrder: sortOrder
+          });
+        }
+    }
+    
+    const compareValues =(key, order='asc') =>{
+        return function(a, b) {
+            if(!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+                return 0;   
+            }
+            const priceA = a[key];
+            const priceB = b[key];
+            let comparison = 0;
+            if (priceA > priceB) {
+                comparison = 1;
+            } else if (priceA < priceB) {
+                comparison = -1;
+            }
+            return (
+                (order == 'desc') ? (comparison * -1) : comparison
+            );
+        };
     }
 
     let sumCount = 0;
@@ -57,6 +114,8 @@ const Cart = (props) => {
         sumCount += item.count;
         totalPrice += item.sumPrice;
     });
+
+
 
 
 
@@ -70,21 +129,37 @@ const Cart = (props) => {
                             <NavLink className="NavLink" exact to="/cart" >Cart</NavLink>
                         </div>
                         <div className="table-carts">
-                            <p className="giohang">GIỎ HÀNG</p>
+                            <p className="giohang"> Your Cart</p>
                             <div className="search-formm">
-                                <input type="text" name='strSearch' value={inputValues.strSearch} placeholder='Search products........' onChange={handleChange} />
+                                <input
+                                    type="text"
+                                    // name='strSearch'
+                                    value={inputValues.strSearch}
+                                    placeholder='Search products........'
+                                    onChange={(event) => onSearch(event.target.value)}
+                                />
                                 <div className="button-searchh">
+                                    <Dropdown overlay={menu} trigger={['click']}>
+                                        <button  className="btn-searchh" type='button'>Sort</button>
+                                    </Dropdown>
                                     <button onClick={handleClear} className="btn-clearr" type='button'>Clear</button>
-                                    <button onClick={() => handleSearch} className="btn-searchh" type='button'>Search</button>
                                 </div>
                             </div>
                             {showResult && (
                                 <>
                                     <Result
-                                        style={{ zIndex: '2', position: 'fixed', backgroundColor: '#F0FFFF', width: '45rem', marginLeft: '200px', boxShadow: '20px 20px 50px grey' }}
+                                        style =
+                                        {{
+                                            zIndex: '2',
+                                            position: 'fixed',
+                                            backgroundColor: '#F0FFFF',
+                                            width: '45rem',
+                                            marginLeft: '200px',
+                                            boxShadow: '20px 20px 50px grey'
+                                        }}
                                         status="success"
                                         title={"You have bought " + sumCount + " products"}
-                                        subTitle={"The price you need to pay is " + totalPrice + "$"}
+                                        subTitle={"The total of price you need to pay is " + totalPrice + "$"}
                                         extra={[
                                             <Button type="primary" key="console">
                                                 <NavLink exact to="/" style={{ textDecoration: 'none' }}>
@@ -119,7 +194,7 @@ const Cart = (props) => {
                                                         style={{ width: '150px', height: '150px' }}
                                                         src={itemProduct.img} />
                                                 </th>
-                                                <td style={{ fontFamily: "utm-viceroyJF", fontSize:'25px' }}>{itemProduct.name}</td>
+                                                <td style={{ fontFamily: "utm-viceroyJF", fontSize: '25px' }}>{itemProduct.name}</td>
                                                 <td><Tag color='purple'>{itemProduct.price}$</Tag></td>
                                                 <td>
                                                     <img
@@ -175,7 +250,7 @@ const Cart = (props) => {
                                             style={{
                                                 width: '150px',
                                                 fontSize: '29px',
-                                                color:'#7ba12d',
+                                                color: '#7ba12d',
                                             }}>
                                             <p>{totalPrice}<span>$</span></p>
                                         </th>

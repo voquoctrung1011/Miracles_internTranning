@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 
-import { Tag, notification, Button } from 'antd';
+import {  notification } from 'antd';
 
 import Product1 from "./assets/images/product_1.png";
 import Product2 from "./assets/images/product_2.png";
@@ -68,7 +68,7 @@ const AppProvider = (props) => {
         {
             id: 2,
             title: "Company",
-            name: "Mỹ phẩm châu myx",
+            name: "Nước hoa châu myx",
             price: 999,
             count:1,
             sumPrice:999,
@@ -77,7 +77,7 @@ const AppProvider = (props) => {
         {
             id: 3,
             title: "SapotaCorp",
-            name: "Mỹ phẩm châu phi",
+            name: "BB Cream",
             price: 25,
             count:1,
             sumPrice:25,
@@ -86,7 +86,7 @@ const AppProvider = (props) => {
         {
             id: 4,
             title: "Micrales",
-            name: "Mỹ phẩm châu doc",
+            name: "Thuốc trị mụn amisa",
             price: 1011,
             count:1,
             sumPrice:1011,
@@ -104,7 +104,7 @@ const AppProvider = (props) => {
         {
             id: 6,
             title: "Datahouse",
-            name: "Mỹ phẩm châu dai duong",
+            name: "Bình xịt khoáng mini",
             price: 4000,
             count:1,
             sumPrice:4000,
@@ -113,7 +113,7 @@ const AppProvider = (props) => {
         {
             id: 7,
             title: "FptSoftware",
-            name: "My phẩm châu my la tinh ",
+            name: "Nước hoa khô cho nam ",
             price: 3450,
             count:1,
             sumPrice:3450,

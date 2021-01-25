@@ -77,11 +77,11 @@ const HeaderMenu = (props) => {
   }
 
   let sumCount = 0;
-    let totalPrice =0;
-    cart.forEach((item, index) => {
-        sumCount += item.count ;   
-        totalPrice += item.sumPrice;    
-    });
+  let totalPrice =0;
+  cart.forEach((item, index) => {
+      sumCount += item.count ;   
+      totalPrice += item.sumPrice;    
+  });
 
 
   return (

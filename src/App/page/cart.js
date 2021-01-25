@@ -6,6 +6,7 @@ import {  BackTop } from 'antd';
 import Menu from '../layouts/gioithieu/menu'
 import Cart from '../layouts/cart/cartProduct'
 import Footer from '../layouts/gioithieu/footerAbout'
+import { Content } from 'antd/lib/layout/layout';
 // import Test from '../layouts/mainPage/test'
 
 
@@ -22,7 +23,8 @@ function CartProducts() {
         color: '#fff',
         textAlign: 'center',
         fontSize: 19,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        
       };
 
     return (

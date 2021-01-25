@@ -24,7 +24,8 @@ function MainPage() {
         color: '#fff',
         textAlign: 'center',
         fontSize: 19,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        Content:"\f176"
       };
     return (
         <div className="mainpage">
