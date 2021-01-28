@@ -110,7 +110,7 @@ const Cart = (props) => {
     });
 
     //Set lai name khi sort
-    const value =[-1, 0 ,1];
+    
     const sortName = (confirm) => {
         switch (confirm) {
             case -1:
