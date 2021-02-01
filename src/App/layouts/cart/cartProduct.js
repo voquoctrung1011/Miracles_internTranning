@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom"
 import AppContext from '../../../AppContext';
 
 import { Container, Table } from 'reactstrap';
-import { Tag, Button, Popconfirm, Result, Menu, Dropdown, Spin } from 'antd';
+import { Tag, Button, Popconfirm, Result, Menu, Dropdown, Spin, Select } from 'antd';
 
 
 import Plus from "../../../assets/images/add.png";
@@ -27,6 +27,7 @@ const Cart = (props) => {
     const [showResult, setShowResult] = useState(false);
     const [inputValues, setInputValues] = useState({ strSearch: '', sortType: '', sortOrder: '' })
     const [loading, setLoading] = useState(false);
+
 
 
     //Button Clear
@@ -109,25 +110,13 @@ const Cart = (props) => {
         totalPrice += item.sumPrice;
     });
 
-    //Set lai name khi sort
-    
-    const sortName = (confirm) => {
-        switch (confirm) {
-            case -1:
-                return 'Ascending';
-            case 0:
-                return 'Sort ';
-            case 1:
-                return 'Descending';
-        }
-    };
     const menu = (
         <Menu>
             <Menu.Item key="0">
-                <a onClick={() => onSort('price', 'asc')}>{sortName(-1)}</a>
+                <a onClick={() => onSort('price', 'asc')}>Ascending</a>
             </Menu.Item>
             <Menu.Item key="1">
-                <a onClick={() => onSort('price', 'desc')}>{sortName(1)}</a>
+                <a onClick={() => onSort('price', 'desc')}>Descending</a>
             </Menu.Item>
         </Menu>
     );
@@ -152,14 +141,14 @@ const Cart = (props) => {
                             <div className="search-formm">
                                 <input
                                     type="text"
-                                    // name='strSearch'
+                                    style={{paddingLeft:'10px'}}
                                     value={inputValues.strSearch}
                                     placeholder='Search products........'
                                     onChange={(event) => onSearch(event.target.value)}
                                 />
-                                <div className="button-searchh">
+                                <div className="button-searchh" >
                                     <Dropdown overlay={menu} trigger={['click']}>
-                                        <button className="btn-searchh" type='button'>{sortName(0)}</button>
+                                        <button className="btn-searchh" type='button'>Sort</button>
                                     </Dropdown>
                                     <button onClick={handleClear} className="btn-clearr" type='button'>Clear</button>
                                 </div>

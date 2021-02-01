@@ -51,6 +51,7 @@
                     border-radius:5px;
                 }
                 .button-searchh{
+                    width: 25%;
                     @media (max-width: $tablet-breakpoint){    
                         display:flex;
                         width: 0;

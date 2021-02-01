@@ -1,11 +1,14 @@
 import React from 'react';
 
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, notification } from 'antd';
 import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
 
 import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "react-google-maps";
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
+import {db} from "../../../firebase.js";
+import emailjs, {init} from 'emailjs-com';
+init("user_BFVMDqb7Dt5JreowSTCNx");
 
 
 const { MarkerWithLabel } = require("react-google-maps/lib/components/addons/MarkerWithLabel");
@@ -183,6 +186,9 @@ class LocationSearchModal extends React.Component {
 
 
     render() {
+
+        
+
         const layout = {
             labelCol: {
                 span: 8,
@@ -199,7 +205,36 @@ class LocationSearchModal extends React.Component {
         };
 
         const onFinish = (values) => {
+          
             console.log('Success:', values);
+            //VERIFILE EMAIL THROUGH FIERBASE CLOUD
+
+            // db.collection("Lien he")
+            // .add({
+            //     name: values.name,
+            //     email: values.email,
+            //     message: values.message
+            // })
+            // .then(() =>{
+            //     notification.success({
+            //         message:'Email',
+            //         description:'Send email success'
+            //     })
+            // })
+            // .catch((error) =>{
+            //     notification.fail({
+            //         message:'Email',
+            //         description:'Send email failure'
+            //     })
+            // })
+
+            emailjs.sendForm('service_a7912h9', 'Gmail', 'user_BFVMDqb7Dt5JreowSTCNx')
+            console.log(values)
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
         };
 
         const onFinishFailed = (errorInfo) => {
@@ -295,7 +330,7 @@ class LocationSearchModal extends React.Component {
                                         },
                                     ]}
                                 >
-                                    <Input />
+                                    <Input name="name" />
                                 </Form.Item>
 
                                 <Form.Item
@@ -308,7 +343,7 @@ class LocationSearchModal extends React.Component {
                                         },
                                     ]}
                                 >
-                                    <Input />
+                                    <Input name="email"/>
                                 </Form.Item>
 
                                 <Form.Item
@@ -321,7 +356,7 @@ class LocationSearchModal extends React.Component {
                                         },
                                     ]}
                                 >
-                                    <Input style={{ paddingBottom: '80px' }} />
+                                    <Input style={{ paddingBottom: '80px' }} name="message" />
                                 </Form.Item>
 
                                 <Form.Item {...tailLayout}>
