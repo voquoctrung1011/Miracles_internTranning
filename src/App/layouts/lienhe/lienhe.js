@@ -187,8 +187,6 @@ class LocationSearchModal extends React.Component {
 
     render() {
 
-        
-
         const layout = {
             labelCol: {
                 span: 8,
