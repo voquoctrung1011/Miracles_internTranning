@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import AppContext from '../../../AppContext';
 import { Drawer, Button, notification, Popconfirm } from 'antd';
 import { Container, Table } from 'reactstrap';
@@ -75,7 +75,7 @@ const HeaderMenu = (props) => {
       strSearch: event.target.value,
     });
   }
-
+    
   let sumCount = 0;
   let totalPrice =0;
   cart.forEach((item, index) => {

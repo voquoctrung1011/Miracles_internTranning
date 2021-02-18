@@ -96,7 +96,6 @@ $mobile-breakpoint: 420px;
                 width: 80%;
             }
             .imgs-container1-child{
-                width: 50%;
                 @media (max-width: $tablet-breakpoint){    
                     width: 50%;
                     display: flex;
@@ -113,14 +112,17 @@ $mobile-breakpoint: 420px;
 
                 }
             }
-            div{
+            .img-1{
+                padding-left:10px;
                 @media (max-width: $tablet-breakpoint){  
                     width: 50%;
                     padding-top:10px;
+                    padding-left:0px;
                 }
                 @media (max-width: $mobile-breakpoint){  
                     width: 97%;
                     padding-top:10px;
+                    padding-left:0px;
                 }
                 img{
                     @media (max-width: $tablet-breakpoint){    

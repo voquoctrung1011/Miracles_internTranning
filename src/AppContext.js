@@ -18,7 +18,7 @@ const AppProvider = (props) => {
     let task = JSON.parse(localStorage.getItem('cart'));
     const [cart, setCart] = useState(task);
     
-    const onDelete = (item) => {
+    const onDelete =  (item) => {
 
         const indexProduct = cart.findIndex(p => p.id === item.id);
         if (indexProduct < 0) return;
